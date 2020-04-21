@@ -13,7 +13,7 @@ const setupDB = callback => {
   const uri = `mongodb+srv://${dbUsername}:${dbPassword}@${dbCluster}.mongodb.net/test?retryWrites=true&w=majority`
 
   MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-    mongoDB = client.db('jambu-server')
+    mongoDB = client.db('cassidy')
     if (err) {
       return callback(err)
     } else {
