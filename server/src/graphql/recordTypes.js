@@ -1,7 +1,7 @@
 const { GraphQLObjectType, GraphQLID, GraphQLString } = require('graphql')
 
-const pxpType = new GraphQLObjectType({
-  name: 'Pxp',
+const recordType = new GraphQLObjectType({
+  name: 'Record',
   fields: {
     _id: { type: GraphQLID },
     title: { type: GraphQLString },
@@ -11,4 +11,4 @@ const pxpType = new GraphQLObjectType({
   }
 })
 
-module.exports = { pxpType }
+module.exports = { recordType }

@@ -1,17 +1,17 @@
 type Mutation {
-  createPxp(title: String, content: String): Pxp
-  deletePxp(_id: ID): ID
-  updatePxp(_id: ID, title: String, content: String): Pxp
+  createRecord(title: String, content: String): Record
+  deleteRecord(_id: ID): ID
+  updateRecord(_id: ID, title: String, content: String): Record
 }
 
-type Pxp {
+type Query {
+  records: [Record]
+}
+
+type Record {
   _id: ID
   title: String
   content: String
   dateCreated: String
   dateModified: String
-}
-
-type Query {
-  pxps: [Pxp]
 }

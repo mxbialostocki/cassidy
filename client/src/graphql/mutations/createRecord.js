@@ -2,8 +2,8 @@ import { commitMutation, graphql } from 'react-relay'
 import environment from '../../environment'
 
 const mutation = graphql`
-  mutation createPxpMutation($title: String, $content: String) {
-    createPxp(title: $title, content: $content) {
+  mutation createRecordMutation($title: String, $content: String) {
+    createRecord(title: $title, content: $content) {
       _id
       title
       content
@@ -12,7 +12,7 @@ const mutation = graphql`
   }
 `
 
-function createPxpMutation (title, content) {
+function createRecordMutation (title, content) {
   const variables = {
     title,
     content
@@ -25,15 +25,15 @@ function createPxpMutation (title, content) {
       console.log('Response received from server.')
     },
     updater: store => {
-      const payload = store.getRootField('createPxp')
+      const payload = store.getRootField('createRecord')
       const root = store.getRoot()
-      const pxps = root.getLinkedRecords('pxps')
+      const records = root.getLinkedRecords('records')
 
-      const newPxps = [...pxps, payload]
-      root.setLinkedRecords(newPxps, 'pxps')
+      const newRecords = [...records, payload]
+      root.setLinkedRecords(newRecords, 'records')
     },
     onError: err => console.error(err)
   })
 }
 
-export default createPxpMutation
+export default createRecordMutation
