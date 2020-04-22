@@ -2,7 +2,7 @@ const MongoDbRepo = require('../repository/mongoDbRepository')
 
 class PxpService {
   constructor () {
-    this.PxpRepository = new MongoDbRepo('Pxps')
+    this.PxpRepository = new MongoDbRepo('plethora01')
   }
 
   getAllPxps () {
