@@ -29,4 +29,4 @@ app.use(
 
 app.listen(4000)
 
-console.log('JULIA IS C00L')
+console.log('Server is running on port 4000')
