@@ -2,19 +2,19 @@ import React from 'react'
 import { QueryRenderer } from 'react-relay'
 import { Loader } from 'semantic-ui-react'
 import environment from '../environment'
-import getPxpsQuery from '../graphql/queries/getPxps'
+import getRecordsQuery from '../graphql/queries/getRecords'
 
 // component imports
-import CreatePxp from './CreatePxp.jsx'
-import DisplayPxps from './DisplayPxps.jsx'
+import CreateRecord from './CreateRecord.jsx'
+import DisplayRecords from './DisplayRecords.jsx'
 
 const Daemon = () => {
   return (
     <React.Fragment>
-      <CreatePxp />
+      <CreateRecord />
       <QueryRenderer
         environment={environment}
-        query={getPxpsQuery}
+        query={getRecordsQuery}
         variables={{}}
         render={({ error, props }) => {
           if (error) {
@@ -26,7 +26,7 @@ const Daemon = () => {
               <Loader active inline="centered" />
             )
           }
-          return <DisplayPxps {...props} />
+          return <DisplayRecords {...props} />
         }}
       />
     </React.Fragment>

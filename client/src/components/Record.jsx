@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Button } from 'semantic-ui-react'
 
-import deletePxpMutation from '../graphql/mutations/deletePxp'
-import UpdatePxp from './UpdatePxp'
+import deleteRecordMutation from '../graphql/mutations/deleteRecord'
+import UpdateRecord from './UpdateRecord'
 
-const Pxp = ({ pxp }) => {
-  const { _id, title, content } = pxp
+const Record = ({ record }) => {
+  const { _id, title, content } = record
   const [ editing, setEditing ] = useState(false)
   const buttonLabel = editing ? 'cancel' : 'edit'
 
@@ -18,7 +18,7 @@ const Pxp = ({ pxp }) => {
         {content}
       </p>
       <Button onClick={() => {
-        deletePxpMutation(_id)
+        deleteRecordMutation(_id)
       }}
       >
         Delete
@@ -28,9 +28,9 @@ const Pxp = ({ pxp }) => {
       }}>
         {buttonLabel}
       </Button>
-      {editing && <UpdatePxp pxp={pxp} setEditing={setEditing}/>}
+      {editing && <UpdateRecord record={record} setEditing={setEditing}/>}
     </React.Fragment>
   )
 }
 
-export default Pxp
+export default Record

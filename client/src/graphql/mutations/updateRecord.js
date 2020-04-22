@@ -2,8 +2,8 @@ import { commitMutation, graphql } from 'react-relay'
 import environment from '../../environment'
 
 const mutation = graphql`
-  mutation updatePxpMutation($_id: ID, $title: String, $content: String) {
-    updatePxp(_id: $_id, title: $title, content: $content) {
+  mutation updateRecordMutation($_id: ID, $title: String, $content: String) {
+    updateRecord(_id: $_id, title: $title, content: $content) {
       _id
       title
       content
@@ -13,7 +13,7 @@ const mutation = graphql`
   }
 `
 
-function updatePxpMutation (_id, title, content) {
+function updateRecordMutation (_id, title, content) {
   const variables = {
     _id,
     title,
@@ -27,15 +27,15 @@ function updatePxpMutation (_id, title, content) {
       console.log('Response received from server.')
     },
     updater: store => {
-      const newUpdatedPxp = store.getRootField('updatePxp')
+      const newUpdatedRecord = store.getRootField('updateRecord')
       const root = store.getRoot()
-      const pxps = root.getLinkedRecords('pxps')
-      const newPxps = pxps.filter(v => v.getValue('_id') !== _id)
+      const records = root.getLinkedRecords('records')
+      const newRecords = records.filter(v => v.getValue('_id') !== _id)
 
-      root.setLinkedRecords([...newPxps, newUpdatedPxp], 'pxps')
+      root.setLinkedRecords([...newRecords, newUpdatedRecord], 'records')
     },
     onError: err => console.error(err)
   })
 }
 
-export default updatePxpMutation
+export default updateRecordMutation
