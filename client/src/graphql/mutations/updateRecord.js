@@ -2,22 +2,40 @@ import { commitMutation, graphql } from 'react-relay'
 import environment from '../../environment'
 
 const mutation = graphql`
-  mutation updateRecordMutation($_id: ID, $title: String, $content: String) {
-    updateRecord(_id: $_id, title: $title, content: $content) {
+  mutation updateRecordMutation($_id: ID, $isbn: String, $title: String, $authorFirst: String, $authorLast: String, $jacketPath: String, $imprint: String, $publisher: String, $publicationYear: String, $determination: String, $reviewSlug: String, $reviewBody: String, $reviewReviewerName: String) {
+    updateRecord(_id: $_id, isbn: $isbn title: $title, authorFirst: $authorFirst, authorLast: $authorLast, jacketPath: $jacketPath, imprint: $imprint, publisher: $publisher, publicationYear: $publicationYear, determination: $determination, reviewSlug: $reviewSlug, reviewBody: $reviewBody, reviewReviewerName: $reviewReviewerName) {
       _id
+      isbn
       title
-      content
-      dateCreated
-      dateModified
+      authorFirst
+      authorLast
+      jacketPath
+      imprint
+      publisher
+      publicationYear
+      determination
+      reviewSlug
+      reviewBody
+      reviewReviewerName
     }
   }
 `
 
-function updateRecordMutation (_id, title, content) {
+function updateRecordMutation (_id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName) {
   const variables = {
     _id,
+    isbn,
     title,
-    content
+    authorFirst,
+    authorLast,
+    jacketPath,
+    imprint,
+    publisher,
+    publicationYear,
+    determination,
+    reviewSlug,
+    reviewBody,
+    reviewReviewerName
   }
 
   commitMutation(environment, {

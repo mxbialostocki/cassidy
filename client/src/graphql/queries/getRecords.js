@@ -4,10 +4,18 @@ const getRecordsQuery = graphql`
   query getRecordsQuery {
     records {
       _id
+      isbn
       title
-      content
-      dateCreated
-      dateModified
+      authorFirst
+      authorLast
+      jacketPath
+      imprint
+      publisher
+      publicationYear
+      determination
+      reviewSlug
+      reviewBody
+      reviewReviewerName
     }
   }
 `
