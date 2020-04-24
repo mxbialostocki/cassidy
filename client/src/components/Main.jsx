@@ -5,13 +5,13 @@ import environment from '../environment'
 import getRecordsQuery from '../graphql/queries/getRecords'
 
 // component imports
-import CreateRecord from './CreateRecord'
-import DisplayRecords from './DisplayRecords'
+import NavHead from './NavHead'
+import ReviewDisplayFrame from './ReviewDisplayFrame'
 
-const Daemon = () => {
+const Main = () => {
   return (
     <React.Fragment>
-      <CreateRecord />
+      <NavHead />
       <QueryRenderer
         environment={environment}
         query={getRecordsQuery}
@@ -26,11 +26,11 @@ const Daemon = () => {
               <Loader active inline="centered" />
             )
           }
-          return <DisplayRecords {...props} />
+          return <ReviewDisplayFrame {...props} />
         }}
       />
     </React.Fragment>
   )
 }
 
-export default Daemon
+export default Main

@@ -1,13 +1,20 @@
 import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
-// component imports
-import Daemon from './Daemon.jsx'
+import { Route, Switch } from 'react-router'
 
+// component imports
+import Main from './Main'
+import Daemon from './Daemon'
+
+// add <Landing />
 const App = () => {
   return (
     <Container fluid textAlign="center">
-      <Header as="h1" textAlign="center">JAMBU</Header>
-      <Daemon />
+      <Header as="h1" textAlign="center">what should i read</Header>
+      <Switch>
+        <Route exact path='/' component={Main} />
+        <Route exact path='/daemon' component={Daemon} />
+      </Switch>
     </Container>
 
   )
