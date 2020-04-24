@@ -1,12 +1,13 @@
 require('dotenv').config({ path: '../server/.env' })
 
-// const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const app = express()
 const graphqlHTTP = require('express-graphql')
 const { setupDB } = require('./config/databaseConnection')
 const printSchemaFromBuild = require('./config/printSchema')
+
+const routes = require('./config/routes')
 
 const schema = require('./graphql/schema')
 printSchemaFromBuild(schema)
@@ -16,6 +17,8 @@ setupDB(value => console.log(value))
 
 app.use(express.static('public'))
 app.use(cors())
+app.use('/', routes)
+// app.use('/daemon', routes)
 app.use(
   '/graphql',
   graphqlHTTP(
@@ -27,6 +30,6 @@ app.use(
   )
 )
 
-app.listen(4000)
-
-console.log('Server is running on port 4000')
+app.listen(4000, () => {
+  console.log('Server is listening on port 4000')
+})

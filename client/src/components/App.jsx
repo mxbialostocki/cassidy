@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
-import { Route, Switch } from 'react-router'
+import { Route, Switch } from 'react-router-dom'
 
 // component imports
 import Main from './Main'
