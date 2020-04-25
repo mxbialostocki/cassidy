@@ -12,7 +12,7 @@ const App = () => {
     <Container fluid textAlign="center">
       <Header as="h1" textAlign="center">what should i read</Header>
       <Switch>
-        <Route exact path='/' component={Main} />
+        <Route exact path='/main' component={Main} />
         <Route exact path='/daemon' component={Daemon} />
       </Switch>
     </Container>

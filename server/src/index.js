@@ -7,7 +7,8 @@ const graphqlHTTP = require('express-graphql')
 const { setupDB } = require('./config/databaseConnection')
 const printSchemaFromBuild = require('./config/printSchema')
 
-const routes = require('./config/routes')
+const path = require('path')
+const router = express.Router()
 
 const schema = require('./graphql/schema')
 printSchemaFromBuild(schema)
@@ -17,8 +18,7 @@ setupDB(value => console.log(value))
 
 app.use(express.static('public'))
 app.use(cors())
-app.use('/', routes)
-// app.use('/daemon', routes)
+
 app.use(
   '/graphql',
   graphqlHTTP(
@@ -29,6 +29,10 @@ app.use(
     }
   )
 )
+
+app.use('/', router.get('*', (req, res) => {
+  res.sendFile(path.resolve('public', 'index.html'))
+}))
 
 app.listen(4000, () => {
   console.log('Server is listening on port 4000')
