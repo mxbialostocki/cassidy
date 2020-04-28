@@ -19,6 +19,21 @@ const UpdateRecord = ({ record, setEditing }) => {
   const [ reviewBodyInputState, setReviewBodyInputState ] = useState(reviewBody)
   const [ reviewReviewerNameInputState, setReviewReviewerNameInputState ] = useState(reviewReviewerName)
 
+  const style = {
+    key: {
+      width: '15%'
+    },
+    val: {
+      width: '85%'
+    },
+    primaryButton: {
+      width: '100%'
+    },
+    primaryTextArea: {
+      width: '100%'
+    }
+  }
+
   return (
     <React.Fragment>
       <Divider horizontal>
@@ -29,85 +44,85 @@ const UpdateRecord = ({ record, setEditing }) => {
       <Table definition>
         <Table.Body>
           <Table.Row>
-            <Table.Cell>isbn</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>isbn</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={isbnInputState} onChange={event => setIsbnInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>title</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>title</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={titleInputState} onChange={event => setTitleInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>author first name(s)</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>author first name(s)</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={authorFirstInputState} onChange={event => setAuthorFirstInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>author last name</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>author last name</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={authorLastInputState} onChange={event => setAuthorLastInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>jacket path</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>jacket path</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={jacketPathInputState} onChange={event => setJacketPathInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>imprint</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>imprint</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={imprintInputState} onChange={event => setImprintInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>publisher</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>publisher</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={publisherInputState} onChange={event => setPublisherInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>publication year</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>publication year</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={publicationYearInputState} onChange={event => setPublicationYearInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>determination</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>determination</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={determinationInputState} onChange={event => setDeterminationInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>review slug</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>review slug</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={reviewSlugInputState} onChange={event => setReviewSlugInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>review body</Table.Cell>
-            <Table.Cell>
-              <TextArea width="100%" transparent value={reviewBodyInputState} onChange={event => setReviewBodyInputState(event.target.value)} />
+            <Table.Cell style={style.key}>review body</Table.Cell>
+            <Table.Cell style={style.val}>
+              <TextArea style={style.primaryTextArea} transparent value={reviewBodyInputState} onChange={event => setReviewBodyInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>reviewer name</Table.Cell>
-            <Table.Cell>
+            <Table.Cell style={style.key}>reviewer name</Table.Cell>
+            <Table.Cell style={style.val}>
               <Input transparent value={reviewReviewerNameInputState} onChange={event => setReviewReviewerNameInputState(event.target.value)} />
             </Table.Cell>
           </Table.Row>
         </Table.Body>
-        <Button onClick={() => {
-          updateRecord(_id, isbnInputState, titleInputState, authorFirstInputState, authorLastInputState, jacketPathInputState, imprintInputState, publisherInputState, publicationYearInputState, determinationInputState, reviewSlugInputState, reviewBodyInputState, reviewReviewerNameInputState)
-          setEditing(false)
-        }}>
-          Update
-        </Button>
       </Table>
+      <Button style={style.primaryButton} onClick={() => {
+        updateRecord(_id, isbnInputState, titleInputState, authorFirstInputState, authorLastInputState, jacketPathInputState, imprintInputState, publisherInputState, publicationYearInputState, determinationInputState, reviewSlugInputState, reviewBodyInputState, reviewReviewerNameInputState)
+        setEditing(false)
+      }}>
+          Update
+      </Button>
     </React.Fragment>
   )
 }

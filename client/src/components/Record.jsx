@@ -10,6 +10,12 @@ const Record = ({ record }) => {
   const buttonLabel = editing ? 'cancel' : 'edit'
 
   const style = {
+    key: {
+      width: '15%'
+    },
+    val: {
+      width: '85%'
+    },
     jacket: {
       width: '300px'
     }
@@ -25,52 +31,52 @@ const Record = ({ record }) => {
       <Table definition>
         <Table.Body>
           <Table.Row>
-            <Table.Cell>isbn</Table.Cell>
-            <Table.Cell>{isbn}</Table.Cell>
+            <Table.Cell style={style.key}>isbn</Table.Cell>
+            <Table.Cell style={style.val}>{isbn}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>title</Table.Cell>
-            <Table.Cell>{title}</Table.Cell>
+            <Table.Cell style={style.key}>title</Table.Cell>
+            <Table.Cell style={style.val}>{title}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>author first name(s)</Table.Cell>
-            <Table.Cell>{authorFirst}</Table.Cell>
+            <Table.Cell style={style.key}>author first name(s)</Table.Cell>
+            <Table.Cell style={style.val}>{authorFirst}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>author last name</Table.Cell>
-            <Table.Cell>{authorLast}</Table.Cell>
+            <Table.Cell style={style.key}>author last name</Table.Cell>
+            <Table.Cell style={style.val}>{authorLast}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>jacket path</Table.Cell>
-            <Table.Cell><img src={jacketPath} style={style.jacket}/></Table.Cell>
+            <Table.Cell style={style.key}>jacket path</Table.Cell>
+            <Table.Cell style={style.val}><img src={jacketPath} style={style.jacket}/></Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>imprint</Table.Cell>
-            <Table.Cell>{imprint}</Table.Cell>
+            <Table.Cell style={style.key}>imprint</Table.Cell>
+            <Table.Cell style={style.val}>{imprint}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>publisher</Table.Cell>
-            <Table.Cell>{publisher}</Table.Cell>
+            <Table.Cell style={style.key}>publisher</Table.Cell>
+            <Table.Cell style={style.val}>{publisher}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>publication year</Table.Cell>
-            <Table.Cell>{publicationYear}</Table.Cell>
+            <Table.Cell style={style.key}>publication year</Table.Cell>
+            <Table.Cell style={style.val}>{publicationYear}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>determination</Table.Cell>
-            <Table.Cell>{determination}</Table.Cell>
+            <Table.Cell style={style.key}>determination</Table.Cell>
+            <Table.Cell style={style.val}>{determination}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>review slug</Table.Cell>
-            <Table.Cell>{reviewSlug}</Table.Cell>
+            <Table.Cell style={style.key}>review slug</Table.Cell>
+            <Table.Cell style={style.val}>{reviewSlug}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>review body</Table.Cell>
-            <Table.Cell>{reviewBody}</Table.Cell>
+            <Table.Cell style={style.key}>review body</Table.Cell>
+            <Table.Cell style={style.val}>{reviewBody}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>reviewer name</Table.Cell>
-            <Table.Cell>{reviewReviewerName}</Table.Cell>
+            <Table.Cell style={style.key}>reviewer name</Table.Cell>
+            <Table.Cell style={style.val}>{reviewReviewerName}</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
