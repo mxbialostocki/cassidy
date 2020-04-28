@@ -113,7 +113,7 @@ const CreateRecord = () => {
       </Table>
       <Button className="centered" size="bigs" onClick={() => {
         if (newRecordIsbn && newRecordTitle && newRecordAuthorFirstName && newRecordAuthorLastName && newRecordJacket && newRecordImprint && newRecordPublisher && newRecordPublicationYear && newRecordReviewSlug && newRecordReviewBody && newRecordReviewReviewerName) {
-          createRecordMutation(newRecordIsbn, newRecordTitle, newRecordAuthorFirstName, newRecordAuthorLastName, newRecordJacket, newRecordImprint, newRecordPublisher, newRecordPublicationYear, newRecordReviewSlug, newRecordReviewBody, newRecordReviewReviewerName)
+          createRecordMutation(newRecordIsbn, newRecordTitle, newRecordAuthorFirstName, newRecordAuthorLastName, newRecordJacket, newRecordImprint, newRecordPublisher, newRecordPublicationYear, newRecordDetermination, newRecordReviewSlug, newRecordReviewBody, newRecordReviewReviewerName)
           setNewRecordIsbn('')
           setNewRecordTitle('')
           setNewRecordAuthorFirstName('')
@@ -122,6 +122,7 @@ const CreateRecord = () => {
           setNewRecordImprint('')
           setNewRecordPublisher('')
           setNewRecordPublicationYear('')
+          setNewRecordDetermination('')
           setNewRecordReviewSlug('')
           setNewRecordReviewBody('')
           setNewRecordReviewReviewerName('')
