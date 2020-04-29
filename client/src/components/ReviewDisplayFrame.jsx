@@ -7,8 +7,13 @@ const ReviewDisplayFrame = ({ records }) => {
 
   const randomTitle = Math.floor(Math.random() * records.length)
 
+  const style = {
+    width: '70vw',
+    padding: '150px'
+  }
+
   return (
-    <React.Fragment>
+    <React.Fragment style={style}>
       <Review record={records[randomTitle]}/>
       <NavReview />
     </React.Fragment>
