@@ -13,3 +13,6 @@ client/public/images
 
 # graphql generations
 **/__generated__/**
+
+# ghosting documents
+.dataSchema.md
