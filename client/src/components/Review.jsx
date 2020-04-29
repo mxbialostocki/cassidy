@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Item } from 'semantic-ui-react'
+import { Typography, Container } from '@material-ui/core'
 
 const Review = ({ record }) => {
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
@@ -24,14 +25,18 @@ const Review = ({ record }) => {
       fontSize: '1.2em'
     }
   }
+
   return (
     <React.Fragment>
-      <Item.Group>
-        <Item style={style}>
-          <Item.Image size='medium' src={jacketPath} />
-
+      <Container>
+        <Typography>
+          <Item style={style}>
+            <Item.Image size='medium' src={jacketPath} />
+          </Item>
+        </Typography>
+        <Typography>
           <Item.Content>
-            <Item.Header as='a' style={style.heading}>{reviewSlug}</Item.Header>
+            <Typography variant='h2' style={style.heading}>{reviewSlug}</Typography>
             <Item.Meta style={style.title}>{title} by {authorFirst} {authorLast}</Item.Meta>
             <Item.Meta>{imprint}, {publisher} ({publicationYear})</Item.Meta>
             <Item.Description style={style.body }>
@@ -39,7 +44,10 @@ const Review = ({ record }) => {
             </Item.Description>
             <Item.Extra>review by {reviewReviewerName}</Item.Extra>
           </Item.Content>
-        </Item>
+        </Typography>
+      </Container>
+      <Item.Group>
+
       </Item.Group>
     </React.Fragment>
   )

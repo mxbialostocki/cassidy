@@ -11,7 +11,7 @@ const App = () => {
     padding: '50px'
   }
   return (
-    <Container style={bodyStyle} textAlign="center">
+    <Container style={bodyStyle}>
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route exact path='/daemon' component={Daemon} />
