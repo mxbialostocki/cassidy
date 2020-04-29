@@ -21,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.12",
     "babel-plugin-relay": "^9.0.0",
     "graphql": "^15.0.0",
     "react": "^16.13.1",
