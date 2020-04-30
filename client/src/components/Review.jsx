@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Item } from 'semantic-ui-react'
+import { Typography, Grid } from '@material-ui/core'
 
 const Review = ({ record }) => {
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
@@ -10,9 +10,17 @@ const Review = ({ record }) => {
   //   determination
   // }
   const style = {
-    textAlign: 'left',
-    width: '60vw',
-    margin: '0 auto',
+    jacketContainer: {
+      width: '30%',
+      padding: '15px'
+    },
+    jacket: {
+      width: '100%'
+    },
+    reviewContainer: {
+      width: '70%',
+      padding: '15px'
+    },
     heading: {
       fontSize: '3em',
       lineHeight: '1.1em'
@@ -24,23 +32,33 @@ const Review = ({ record }) => {
       fontSize: '1.2em'
     }
   }
+
   return (
     <React.Fragment>
-      <Item.Group>
-        <Item style={style}>
-          <Item.Image size='medium' src={jacketPath} />
+      <Grid container direction="row" justify="space-between" alignItems="flex-start">
+        <Grid item style={style.jacketContainer}>
+          <img style={style.jacket} src={jacketPath} />
+        </Grid>
+        <Grid container direction="column" justify="flex-start" alignItems="flex-start" style={style.reviewContainer}>
+          <Grid item>
+            <Typography variant='h2' style={style.heading}>{reviewSlug}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography style={style.title}>{title} by {authorFirst} {authorLast}</Typography>
+          </Grid>
+          
+          <Grid item>
+            <Typography>{imprint === 'null' ? null : imprint + ', '}{publisher} ({publicationYear})</Typography>
+          </Grid>
+          <Grid item>
+            <Typography style={style.body}>{reviewBody}</Typography>
+          </Grid>
+          <Grid item >
+            <Typography>review by {reviewReviewerName}</Typography>
+          </Grid>
 
-          <Item.Content>
-            <Item.Header as='a' style={style.heading}>{reviewSlug}</Item.Header>
-            <Item.Meta style={style.title}>{title} by {authorFirst} {authorLast}</Item.Meta>
-            <Item.Meta>{imprint}, {publisher} ({publicationYear})</Item.Meta>
-            <Item.Description style={style.body }>
-              {reviewBody}
-            </Item.Description>
-            <Item.Extra>review by {reviewReviewerName}</Item.Extra>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+        </Grid>
+      </Grid>
     </React.Fragment>
   )
 }
