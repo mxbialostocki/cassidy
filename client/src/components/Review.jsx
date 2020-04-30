@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Typography, Grid } from '@material-ui/core'
+import { Typography, Grid, Divider } from '@material-ui/core'
 
 const Review = ({ record }) => {
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
@@ -22,7 +22,7 @@ const Review = ({ record }) => {
       padding: '15px'
     },
     heading: {
-      fontSize: '3em',
+      fontSize: '3rem',
       lineHeight: '1.1em'
     },
     title: {
@@ -40,20 +40,21 @@ const Review = ({ record }) => {
           <img style={style.jacket} src={jacketPath} />
         </Grid>
         <Grid container direction="column" justify="flex-start" alignItems="flex-start" style={style.reviewContainer}>
-          <Grid item>
-            <Typography variant='h2' style={style.heading}>{reviewSlug}</Typography>
+          <Grid item spacing={2}>
+            <Typography variant='h1' style={style.heading}>{reviewSlug}</Typography>
           </Grid>
-          <Grid item>
+          <Divider variant="middle" />
+          <Grid item spacing={2}>
             <Typography style={style.title}>{title} by {authorFirst} {authorLast}</Typography>
           </Grid>
-          
-          <Grid item>
+          <Grid item spacing={2}>
             <Typography>{imprint === 'null' ? null : imprint + ', '}{publisher} ({publicationYear})</Typography>
           </Grid>
-          <Grid item>
+          <Divider variant="middle" />
+          <Grid item spacing={2}>
             <Typography style={style.body}>{reviewBody}</Typography>
           </Grid>
-          <Grid item >
+          <Grid item spacing={2}>
             <Typography>review by {reviewReviewerName}</Typography>
           </Grid>
 

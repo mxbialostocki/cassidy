@@ -14,7 +14,7 @@ const Landing = ({ clickHandler }) => {
   return (
     <React.Fragment>
       <div role='button' style={style.body} onClick={() => clickHandler()}>
-        <Typography variant='h1' style={style.welcome} gutterBottom >what should i read</Typography>
+        <Typography variant='h1' style={style.welcome} gutterBottom fontWeight="800" >what should i read</Typography>
         <div style={{ display: 'none', lineHeight: '0' }}>ghosty</div>
       </div>
     </React.Fragment>

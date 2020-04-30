@@ -10,7 +10,7 @@ const HomePage = () => {
     width: '100vw',
     height: '100vh'
   }
-  const [ isInitialLoad, setIsInitialLoad ] = useState(true)  
+  const [ isInitialLoad, setIsInitialLoad ] = useState(true)
   const activePage = isInitialLoad ? <Landing clickHandler={setIsInitialLoad}/> : <Main />
   return (
     <Grid container direction="column" justify="center" alignItems="center" style={style}>
