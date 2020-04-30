@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Divider } from 'semantic-ui-react'
-import { Button, Input, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
+import { Button, Typography, Input, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import createRecordMutation from '../graphql/mutations/createRecord'
 
@@ -37,9 +37,9 @@ const CreateRecord = () => {
   return (
     <React.Fragment>
       <Divider horizontal>
-        <h3>
+        <Typography style={{ fontSize: '2em' }}>
           add title to database
-        </h3>
+        </Typography>
       </Divider>
       <Table>
         <TableBody>
