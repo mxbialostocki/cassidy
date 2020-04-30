@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { Item } from 'semantic-ui-react'
-import { Typography, Container } from '@material-ui/core'
+import { Typography, Grid } from '@material-ui/core'
 
 const Review = ({ record }) => {
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
@@ -11,9 +10,17 @@ const Review = ({ record }) => {
   //   determination
   // }
   const style = {
-    textAlign: 'left',
-    width: '60vw',
-    margin: '0 auto',
+    jacketContainer: {
+      width: '30%',
+      padding: '15px'
+    },
+    jacket: {
+      width: '100%'
+    },
+    reviewContainer: {
+      width: '70%',
+      padding: '15px'
+    },
     heading: {
       fontSize: '3em',
       lineHeight: '1.1em'
@@ -28,27 +35,29 @@ const Review = ({ record }) => {
 
   return (
     <React.Fragment>
-      <Container>
-        <Typography>
-          <Item style={style}>
-            <Item.Image size='medium' src={jacketPath} />
-          </Item>
-        </Typography>
-        <Typography>
-          <Item.Content>
+      <Grid container direction="row" justify="space-between" alignItems="flex-start">
+        <Grid item style={style.jacketContainer}>
+          <img style={style.jacket} src={jacketPath} />
+        </Grid>
+        <Grid container direction="column" justify="flex-start" alignItems="flex-start" style={style.reviewContainer}>
+          <Grid item>
             <Typography variant='h2' style={style.heading}>{reviewSlug}</Typography>
-            <Item.Meta style={style.title}>{title} by {authorFirst} {authorLast}</Item.Meta>
-            <Item.Meta>{imprint}, {publisher} ({publicationYear})</Item.Meta>
-            <Item.Description style={style.body }>
-              {reviewBody}
-            </Item.Description>
-            <Item.Extra>review by {reviewReviewerName}</Item.Extra>
-          </Item.Content>
-        </Typography>
-      </Container>
-      <Item.Group>
+          </Grid>
+          <Grid item>
+            <Typography style={style.title}>{title} by {authorFirst} {authorLast}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography>{imprint ? null : imprint + ', '}{publisher} ({publicationYear})</Typography>
+          </Grid>
+          <Grid item>
+            <Typography style={style.body}>{reviewBody}</Typography>
+          </Grid>
+          <Grid item >
+            <Typography>review by {reviewReviewerName}</Typography>
+          </Grid>
 
-      </Item.Group>
+        </Grid>
+      </Grid>
     </React.Fragment>
   )
 }
