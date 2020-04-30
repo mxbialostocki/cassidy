@@ -46,8 +46,9 @@ const Review = ({ record }) => {
           <Grid item>
             <Typography style={style.title}>{title} by {authorFirst} {authorLast}</Typography>
           </Grid>
+          
           <Grid item>
-            <Typography>{imprint ? null : imprint + ', '}{publisher} ({publicationYear})</Typography>
+            <Typography>{imprint === 'null' ? null : imprint + ', '}{publisher} ({publicationYear})</Typography>
           </Grid>
           <Grid item>
             <Typography style={style.body}>{reviewBody}</Typography>

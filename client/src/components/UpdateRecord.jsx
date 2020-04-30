@@ -31,7 +31,7 @@ const UpdateRecord = ({ record, setEditing }) => {
       width: '85%'
     },
     btn: {
-      margin: '15px',
+      margin: '15px 0',
       padding: '5px',
       width: '100%'
     }
@@ -44,7 +44,7 @@ const UpdateRecord = ({ record, setEditing }) => {
           {title} by {authorFirst} {authorLast}
         </h3>
       </Divider>
-      <Table definition>
+      <Table>
         <TableBody>
           <TableRow>
             <TableCell style={style.key}>isbn</TableCell>

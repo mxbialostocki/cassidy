@@ -12,7 +12,7 @@ const DisplayRecords = ({ records }) => {
 
   const style = {
     btn: {
-      margin: '15px',
+      margin: '15px 0',
       padding: '5px',
       width: '100%'
     }

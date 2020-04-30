@@ -18,10 +18,11 @@ const Record = ({ record }) => {
       width: '85%'
     },
     jacket: {
-      width: '300px'
+      width: '100%',
+      maxWidth: '300px'
     },
     btn: {
-      margin: '15px',
+      margin: '15px 0',
       padding: '5px',
       width: '100%'
     }
