@@ -9,7 +9,7 @@ import getRecordsQuery from '../graphql/queries/getRecords'
 import ReviewDisplayFrame from './ReviewDisplayFrame'
 
 const style = {
-  width: '70vw'
+  width: '60vw'
 }
 
 const Main = () => {
