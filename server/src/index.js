@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../server/.env' })
+require('dotenv').config({ path: 'server/.env' })
 
 const express = require('express')
 const cors = require('cors')
@@ -16,7 +16,7 @@ printSchemaFromBuild(schema)
 // Call in database connection
 setupDB(value => console.log(value))
 
-app.use(express.static('public'))
+app.use(express.static('client/public'))
 app.use(cors())
 
 app.use(
@@ -31,7 +31,7 @@ app.use(
 )
 
 app.use('/', router.get('*', (req, res) => {
-  res.sendFile(path.resolve('public', 'index.html'))
+  res.sendFile(path.resolve('client/public', 'index.html'))
 }))
 
 app.listen(4000, () => {
