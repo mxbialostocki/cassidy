@@ -1,22 +1,18 @@
 import React from 'react'
+import { Typography, Grid } from '@material-ui/core'
 
-import { Typography } from '@material-ui/core'
+import useStyle from '../custom'
 
 const Landing = ({ clickHandler }) => {
-  const style = {
-    body: {
-      cursor: 'pointer'
-    },
-    welcome: {
-      textAlign: 'center'
-    }
-  }
+  const styles = useStyle()
   return (
     <React.Fragment>
-      <div role='button' style={style.body} onClick={() => clickHandler()}>
-        <Typography variant='h1' style={style.welcome} gutterBottom fontWeight="800" >what should i read</Typography>
-        <div style={{ display: 'none', lineHeight: '0' }}>ghosty</div>
-      </div>
+      <Grid container className={styles.landing}>
+        <div role='button' onClick={() => clickHandler()}>
+          <Typography variant='h1' className={styles.landing.welcome} gutterBottom fontWeight="800" >what should i read</Typography>
+          <div style={{ display: 'none', lineHeight: '0' }}>ghosty</div>
+        </div>
+      </Grid>
     </React.Fragment>
   )
 }
