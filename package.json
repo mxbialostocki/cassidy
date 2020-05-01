@@ -4,9 +4,10 @@
   "description": "Cassidy is an extrapolated refactoring of a project that returned a book reccomendation from privately curated list. Once a user engages with the Landing page, a single review is returned. If the user doesn't like the review, they can say so by interacting with the page again to return a subsequent review.",
   "main": "client/src/index.js",
   "scripts": {
-    "start": "webpack & nodemon server/src/index.js --watch server/src",
+    "start": "node server/src/index.js --watch server/src",
+    "heroku-postbuild": "webpack -p",
     "test": "test",
-    "dev": "webpack-dev-server",
+    "dev": "webpack & nodemon server/src/index.js --watch server/src",
     "relay": "relay-compiler --src client/src --schema client/data/schema.graphql"
   },
   "author": "julia-mareike mxbialostocki",
