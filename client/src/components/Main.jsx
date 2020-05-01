@@ -8,10 +8,6 @@ import getRecordsQuery from '../graphql/queries/getRecords'
 // component imports
 import ReviewDisplayFrame from './ReviewDisplayFrame'
 
-const style = {
-  width: '60vw'
-}
-
 const Main = () => {
   return (
     <React.Fragment>
@@ -30,7 +26,7 @@ const Main = () => {
             )
           }
           return (
-            <Grid container direction="row" justify="center" alignItems="center" style={style}>
+            <Grid container direction="row" justify="center" alignItems="center">
               <ReviewDisplayFrame {...props} />
             </Grid>
           )

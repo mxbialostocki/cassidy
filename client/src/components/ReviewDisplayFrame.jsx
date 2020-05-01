@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Typography, Grid } from '@material-ui/core'
+import useStyle from '../custom'
 
 import Review from './Review'
 
@@ -10,13 +11,14 @@ const ReviewDisplayFrame = ({ records }) => {
     )
   }
   const [titlesByDetermination, setTitlesByDetermination] = useState(randomTitle())
+  const styles = useStyle()
 
   return (
     <React.Fragment>
-      <Grid container direction="column" justify="center" alignItems="center" >
+      <Grid container direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
         <Review record={records[titlesByDetermination]}/>
-        <Button textSizeLarge onClick={() => setTitlesByDetermination(randomTitle())}>
-          <Typography >not this one</Typography>
+        <Button sizing='large' onClick={() => setTitlesByDetermination(randomTitle())}>
+          <Typography className={styles.reviewDisplayFrame.btn} >not this one</Typography>
         </Button>
       </Grid>
     </React.Fragment>
