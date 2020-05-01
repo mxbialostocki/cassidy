@@ -1,9 +1,3 @@
-type Mutation {
-  createRecord(isbn: String, title: String, authorFirst: String, authorLast: String, jacketPath: String, imprint: String, publisher: String, publicationYear: String, content: String, determination: String, reviewSlug: String, reviewBody: String, reviewReviewerName: String, dateCreated: String, dateModified: String): Record
-  deleteRecord(_id: ID): ID
-  updateRecord(_id: ID, isbn: String, title: String, authorFirst: String, authorLast: String, jacketPath: String, imprint: String, publisher: String, publicationYear: String, determination: String, reviewSlug: String, reviewBody: String, reviewReviewerName: String): Record
-}
-
 type Query {
   records: [Record]
 }
@@ -24,4 +18,10 @@ type Record {
   reviewReviewerName: String
   dateCreated: String
   dateModified: String
+}
+
+type Mutation {
+  createRecord(isbn: String, title: String, authorFirst: String, authorLast: String, jacketPath: String, imprint: String, publisher: String, publicationYear: String, content: String, determination: String, reviewSlug: String, reviewBody: String, reviewReviewerName: String, dateCreated: String, dateModified: String): Record
+  deleteRecord(_id: ID): ID
+  updateRecord(_id: ID, isbn: String, title: String, authorFirst: String, authorLast: String, jacketPath: String, imprint: String, publisher: String, publicationYear: String, determination: String, reviewSlug: String, reviewBody: String, reviewReviewerName: String): Record
 }

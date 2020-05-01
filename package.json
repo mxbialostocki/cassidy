@@ -1,13 +1,13 @@
 {
-  "name": "client",
+  "name": "whatshouldiread",
   "version": "1.0.0",
-  "description": "JAMBU Front-End Directory",
-  "main": "src/index.js",
+  "description": "Cassidy is an extrapolated refactoring of a project that returned a book reccomendation from privately curated list. Once a user engages with the Landing page, a single review is returned. If the user doesn't like the review, they can say so by interacting with the page again to return a subsequent review.",
+  "main": "client/src/index.js",
   "scripts": {
-    "start": "webpack & nodemon ../server/src/index.js --watch ../server/src",
+    "start": "webpack & nodemon server/src/index.js --watch server/src",
     "test": "test",
     "dev": "webpack-dev-server",
-    "relay": "relay-compiler --src ./src --schema ./data/schema.graphql"
+    "relay": "relay-compiler --src client/src --schema client/data/schema.graphql"
   },
   "author": "julia-mareike mxbialostocki",
   "license": "ISC",
@@ -32,7 +32,13 @@
     "relay-compiler": "^9.0.0",
     "relay-config": "^9.0.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "mongodb": "^3.5.5",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

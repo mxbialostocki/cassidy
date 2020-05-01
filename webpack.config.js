@@ -1,9 +1,9 @@
 const path = require('path')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './client/src/index.js',
   output: {
-    path: path.join(__dirname, './public'),
+    path: path.join(__dirname, './client/public'),
     filename: 'bundle.js'
   },
   mode: 'development',
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [{ 
+        use: [{
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
@@ -45,6 +45,6 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   devServer: {
-    contentBase: './public'
+    contentBase: './client/public'
   }
 }
