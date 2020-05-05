@@ -4,13 +4,13 @@ let mongoDB
 
 const dbUsername = process.env.MONGO_DATABASE_USERNAME
 const dbPassword = process.env.MONGO_DATABASE_PASSWORD
-// const dbCluster = process.env.MONGO_CLUSTER
+const dbCluster = process.env.MONGO_CLUSTER
 
 const setupDB = callback => {
   if (!dbUsername || !dbPassword) {
     return callback('Mongo credentials undefined')
   }
-  const uri = `mongodb://${dbUsername}:${dbPassword}@ds137857.mlab.com:37857/heroku_1sj638ch`
+  const uri = `mongodb+srv://${dbUsername}:${dbPassword}@${dbCluster}.mongodb.net/test?retryWrites=true&w=majority`
 
   MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
     mongoDB = client.db('cassidy')
