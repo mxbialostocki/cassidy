@@ -20,7 +20,7 @@ const Review = ({ record }) => {
         </Grid>
         <Grid container direction="column" justify="flex-start" alignItems="flex-start" className={styles.reviewContainer}>
           <Grid item>
-            <Typography variant='h1' className={styles.heading}>{reviewSlug}</Typography>
+            <Typography variant="h2" className={styles.heading}>{reviewSlug}</Typography>
           </Grid>
           <Divider variant="middle" />
           <Grid item>
@@ -31,7 +31,7 @@ const Review = ({ record }) => {
           </Grid>
           <Divider variant="middle" />
           <Grid item>
-            <Typography className={styles.body}>{reviewBody}</Typography>
+            <Typography variant="h4" className={styles.body}>{reviewBody}</Typography>
           </Grid>
           <Grid item>
             <Typography>review by {reviewReviewerName}</Typography>

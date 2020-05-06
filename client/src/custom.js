@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   heading: {
-    fontSize: '3rem',
+    fontSize: '2rem',
     lineHeight: '1.1em'
   },
   title: {
