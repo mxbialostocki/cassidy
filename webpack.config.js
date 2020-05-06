@@ -44,6 +44,6 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   devServer: {
-    contentBase: './client/public'
+    contentBase: path.join(__dirname, 'public')
   }
 }
