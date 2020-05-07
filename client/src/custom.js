@@ -32,8 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   heading: {
-    fontSize: '2rem',
-    lineHeight: '1.1em'
+    lineHeight: '2em'
   },
   title: {
     fontSize: '2em'
@@ -52,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
       padding: '15px'
     },
     btn: {
-      fontSize: '2em',
       width: '100%'
     }
   },
