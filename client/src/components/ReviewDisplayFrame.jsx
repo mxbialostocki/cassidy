@@ -16,14 +16,15 @@ const ReviewDisplayFrame = ({ records }) => {
 
   return (
     <React.Fragment>
-      <Grid container direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
-        <Review record={records[titlesByDetermination]}/>
-        <Button variant='outlined' spacing={2} className={styles.fullWidthBtn} onClick={() => setTitlesByDetermination(randomTitle())}>
-          <Typography variant="h2" >not this one</Typography>
-        </Button>
-        <div role='button' className={styles.fullWidthBtn} onClick={() => setTitlesByDetermination(randomTitle())}>
-          <Typography variant="h2" >not this one</Typography>
-        </div>
+      <Grid container spacing={2} direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
+        <Grid item>
+          <Review record={records[titlesByDetermination]}/>
+        </Grid>
+        <Grid item style={{ 'width': '100%', 'margin': '20px 0' }}>
+          <Button variant='outlined' fullWidth={true} onClick={() => setTitlesByDetermination(randomTitle())}>
+            <Typography variant="h3" >not this one</Typography>
+          </Button>
+        </Grid>
       </Grid>
     </React.Fragment>
   )

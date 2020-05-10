@@ -1,33 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'space-between',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-      alignItems: 'flex-start'
-    }
-  },
-  jacketContainer: {
-    width: '30%',
-    sm: '12',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      padding: '28px 0px',
-      sm: '8'
-    }
-  },
-  reviewContainer: {
-    width: '70%',
-    paddingLeft: '1em',
-    sm: '12',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      paddlingLeft: '0',
-      sm: '8'
-    }
-  },
   jacket: {
     width: '100%',
     maxWidth: '400px',
@@ -43,14 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   body: {
     lineHeight: '1.2em'
-  },
-  fullWidthBtn: {
-    width: '100%',
-    cursor: 'pointer',
-    border: 'darkGray solid .5px',
-    borderRadius: '6px',
-    textAlign: 'center',
-    margin: '16px'
   },
   reviewDisplayFrame: {
     width: '70%',
