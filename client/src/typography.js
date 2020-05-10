@@ -1,25 +1,26 @@
 const typography = {
-
   fontFamily: [
     'Fira Code',
     'Arial',
     'sans-serif'
   ].join(','),
   h1: {
-    fontSize: '8em',
-    fontWeight: '800'
+    fontSize: '6em',
+    fontWeight: '500'
   },
   h2: {
-    fontSize: '3rem',
-    '@media (min-width:600px)': {
-      fontSize: '1.5rem'
-    }
+    fontSize: '2.5em'
   },
   h3: {
-    fontSize: '1.5em'
+    fontSize: '1.5em',
+    textTransform: 'uppercase'
   },
   h4: {
-    fontSize: '1em'
+    fontSize: '1em',
+    lineHeight: '1.5em'
+  },
+  h5: {
+    fontSize: '0.8em'
   }
 }
 

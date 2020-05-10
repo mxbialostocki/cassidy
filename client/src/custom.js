@@ -11,17 +11,21 @@ const useStyles = makeStyles((theme) => ({
   },
   jacketContainer: {
     width: '30%',
-    padding: '16px',
+    sm: '{12}',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
-      padding: '28px 0px'
+      padding: '28px 0px',
+      sm: '{8}'
     }
   },
   reviewContainer: {
     width: '70%',
-    padding: '16px',
+    paddingLeft: '1em',
+    sm: '{12}',
     [theme.breakpoints.down('sm')]: {
-      width: '100%'
+      width: '100%',
+      paddlingLeft: '0',
+      sm: '{8}'
     }
   },
   jacket: {
@@ -38,7 +42,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '2em'
   },
   body: {
-    fontSize: '1.2em'
+    lineHeight: '1.2em'
+  },
+  fullWidthBtn: {
+    width: '100%',
+    cursor: 'pointer',
+    border: 'darkGray solid .5px',
+    borderRadius: '6px',
+    textAlign: 'center',
+    margin: '16px'
   },
   reviewDisplayFrame: {
     width: '70%',
@@ -49,13 +61,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '90%',
       padding: '15px'
-    },
-    btn: {
-      width: '100%'
     }
   },
   homePage: {
-    padding: '50px',
     width: '100%',
     height: '100vh',
     justifyContent: 'center',
@@ -72,6 +80,10 @@ const useStyles = makeStyles((theme) => ({
     welcome: {
       textAlign: 'center'
     }
+  },
+  hidden: {
+    display: 'none',
+    lineHeight: '0'
   }
 }))
 

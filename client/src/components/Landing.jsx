@@ -1,10 +1,10 @@
 import React from 'react'
 import { Typography, Grid } from '@material-ui/core'
 
-import useStyle from '../custom'
+import useStyles from '../custom'
 
 const Landing = ({ clickHandler }) => {
-  const styles = useStyle()
+  const styles = useStyles()
   return (
     <React.Fragment>
       <Grid container className={styles.landing}>
