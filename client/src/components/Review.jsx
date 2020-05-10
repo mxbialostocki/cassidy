@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Grid, Divider } from '@material-ui/core'
+import { Typography, Grid } from '@material-ui/core'
 
 import useStyles from '../custom'
 
@@ -14,27 +14,25 @@ const Review = ({ record }) => {
 
   return (
     <React.Fragment>
-      <Grid container className={styles.container} justify="center">
-        <Grid item className={styles.jacketContainer}>
+      <Grid container spacing={2} justify="center">
+        <Grid sm={12} md={4} item>
           <img className={styles.jacket} src={jacketPath} />
         </Grid>
-        <Grid container direction="column" justify="flex-start" alignItems="flex-start" className={styles.reviewContainer}>
+        <Grid sm={12} md={8} container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" style={{ paddingLeft: '1em' }}>
           <Grid item>
-            <Typography variant='h1' className={styles.heading}>{reviewSlug}</Typography>
-          </Grid>
-          <Divider variant="middle" />
-          <Grid item>
-            <Typography className={styles.title}>{title} by {authorFirst} {authorLast}</Typography>
+            <Typography variant="h2" className={styles.heading}>{reviewSlug}</Typography>
           </Grid>
           <Grid item>
-            <Typography>{imprint === 'null' ? null : imprint + ', '}{publisher} ({publicationYear})</Typography>
-          </Grid>
-          <Divider variant="middle" />
-          <Grid item>
-            <Typography className={styles.body}>{reviewBody}</Typography>
+            <Typography variant="h3" className={styles.title}>{title} by {authorFirst} {authorLast}</Typography>
           </Grid>
           <Grid item>
-            <Typography>review by {reviewReviewerName}</Typography>
+            <Typography variant="h5">{imprint === 'null' ? null : imprint + ', '}{publisher} (ed.{publicationYear})</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h4" >{reviewBody}</Typography>
+          </Grid>
+          <Grid item className={styles.hidden}>
+            <Typography variant="h5">review by {reviewReviewerName}</Typography>
           </Grid>
         </Grid>
       </Grid>

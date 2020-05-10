@@ -1,7 +1,9 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime'
 
+// const port = process.env.PORT || 4000
+
 function fetchQuery (operation, variables) {
-  return fetch('http://localhost:4000/graphql', {
+  return fetch('/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -1,29 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'space-between',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-      alignItems: 'flex-start'
-    }
-  },
-  jacketContainer: {
-    width: '30%',
-    padding: '16px',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      padding: '28px 0px'
-    }
-  },
-  reviewContainer: {
-    width: '70%',
-    padding: '16px',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%'
-    }
-  },
   jacket: {
     width: '100%',
     maxWidth: '400px',
@@ -32,14 +9,13 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   heading: {
-    fontSize: '3rem',
-    lineHeight: '1.1em'
+    lineHeight: '2em'
   },
   title: {
     fontSize: '2em'
   },
   body: {
-    fontSize: '1.2em'
+    lineHeight: '1.2em'
   },
   reviewDisplayFrame: {
     width: '70%',
@@ -50,14 +26,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '90%',
       padding: '15px'
-    },
-    btn: {
-      fontSize: '2em',
-      width: '100%'
     }
   },
   homePage: {
-    padding: '50px',
     width: '100%',
     height: '100vh',
     justifyContent: 'center',
@@ -74,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
     welcome: {
       textAlign: 'center'
     }
+  },
+  hidden: {
+    display: 'none',
+    lineHeight: '0'
   }
 }))
 

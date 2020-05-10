@@ -6,8 +6,7 @@ module.exports = {
     path: path.join(__dirname, './client/public'),
     filename: 'bundle.js'
   },
-  mode: 'development',
-  watch: true,
+  mode: 'production',
   module: {
     rules: [
       {
@@ -45,6 +44,6 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   devServer: {
-    contentBase: './client/public'
+    contentBase: path.join(__dirname, 'public')
   }
 }
