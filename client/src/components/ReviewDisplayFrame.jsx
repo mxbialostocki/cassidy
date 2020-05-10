@@ -18,6 +18,9 @@ const ReviewDisplayFrame = ({ records }) => {
     <React.Fragment>
       <Grid container direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
         <Review record={records[titlesByDetermination]}/>
+        <Button variant='outlined' spacing={2} className={styles.fullWidthBtn} onClick={() => setTitlesByDetermination(randomTitle())}>
+          <Typography variant="h2" >not this one</Typography>
+        </Button>
         <div role='button' className={styles.fullWidthBtn} onClick={() => setTitlesByDetermination(randomTitle())}>
           <Typography variant="h2" >not this one</Typography>
         </div>

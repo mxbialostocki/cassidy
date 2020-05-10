@@ -11,21 +11,21 @@ const useStyles = makeStyles((theme) => ({
   },
   jacketContainer: {
     width: '30%',
-    sm: '{12}',
+    sm: '12',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       padding: '28px 0px',
-      sm: '{8}'
+      sm: '8'
     }
   },
   reviewContainer: {
     width: '70%',
     paddingLeft: '1em',
-    sm: '{12}',
+    sm: '12',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       paddlingLeft: '0',
-      sm: '{8}'
+      sm: '8'
     }
   },
   jacket: {

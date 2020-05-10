@@ -14,11 +14,11 @@ const Review = ({ record }) => {
 
   return (
     <React.Fragment>
-      <Grid xs={12} container className={styles.container} spacing={2} justify="center">
-        <Grid item className={styles.jacketContainer}>
+      <Grid container className={styles.container} spacing={2} justify="center">
+        <Grid sm={12} md={4} item className={styles.jacketContainer}>
           <img className={styles.jacket} src={jacketPath} />
         </Grid>
-        <Grid container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" className={styles.reviewContainer}>
+        <Grid sm={12} md={8} container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" className={styles.reviewContainer}>
           <Grid item>
             <Typography variant="h2" className={styles.heading}>{reviewSlug}</Typography>
           </Grid>
