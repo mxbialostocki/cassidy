@@ -1,6 +1,5 @@
 import React from 'react'
 import { QueryRenderer } from 'react-relay'
-import { Loader } from 'semantic-ui-react'
 import { Grid } from '@material-ui/core'
 import environment from '../environment'
 import getRecordsQuery from '../graphql/queries/getRecords'
@@ -32,8 +31,7 @@ const Daemon = () => {
               }
               if (!props) {
                 return (
-                  <Loader active inline="centered" />
-                )
+                  <p> loading </p>)
               }
               return <DisplayRecords {...props} />
             }}

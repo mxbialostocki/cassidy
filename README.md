@@ -24,7 +24,7 @@ The previous iteration of Cassidy used Redux for state management and sqlite as 
 [-] daemon auth
 [-] jacket filepath
 [-] bookstore seeking link
-[-] webpack / build config
+[x] webpack / build config
 [-] restructure determination for mongo
 [-] write determination buttons
 [-] imprint={void} true

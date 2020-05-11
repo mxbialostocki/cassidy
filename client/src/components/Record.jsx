@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Divider } from 'semantic-ui-react'
 import { Button, Typography, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import deleteRecordMutation from '../graphql/mutations/deleteRecord'
@@ -30,9 +29,7 @@ const Record = ({ record }) => {
 
   return (
     <React.Fragment>
-      <Divider horizontal>
-        <Typography style={{ fontSize: '2em' }}>{title} by {authorFirst} {authorLast}</Typography>
-      </Divider>
+      <Typography style={{ fontSize: '2em' }}>{title} by {authorFirst} {authorLast}</Typography>
       <Table>
         <TableBody>
           <TableRow>
