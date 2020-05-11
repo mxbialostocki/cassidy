@@ -1,4 +1,5 @@
 const path = require('path')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: './client/src/index.js',
@@ -6,7 +7,6 @@ module.exports = {
     path: path.join(__dirname, './client/public'),
     filename: 'bundle.js'
   },
-  mode: 'production',
   module: {
     rules: [
       {
@@ -42,8 +42,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public')
   }
+  // devServer: {
+  //   contentBase: path.join(__dirname, 'public')
+  // }
+  // plugins: [
+  //   new BundleAnalyzerPlugin()
+  // ]
 }

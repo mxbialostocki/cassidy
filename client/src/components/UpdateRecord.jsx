@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Divider } from 'semantic-ui-react'
 import { Button, Input, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import updateRecord from '../graphql/mutations/updateRecord'
@@ -39,11 +38,9 @@ const UpdateRecord = ({ record, setEditing }) => {
 
   return (
     <React.Fragment>
-      <Divider horizontal>
-        <h3>
-          {title} by {authorFirst} {authorLast}
-        </h3>
-      </Divider>
+      <h3>
+        {title} by {authorFirst} {authorLast}
+      </h3>
       <Table>
         <TableBody>
           <TableRow>
