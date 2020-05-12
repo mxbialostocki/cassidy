@@ -6,8 +6,10 @@ import Main from './Main'
 
 const HomePage = () => {
   const styles = useStyles()
+
   const [ isInitialLoad, setIsInitialLoad ] = useState(true)
   const activePage = isInitialLoad ? <Landing clickHandler={setIsInitialLoad}/> : <Main />
+
   return (
     <Grid container direction="column" alignItems="center" className={styles.homePage}>
       <Grid item>
