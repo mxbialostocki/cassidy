@@ -1,6 +1,6 @@
 import React from 'react'
 import { QueryRenderer } from 'react-relay'
-import { Grid } from '@material-ui/core'
+import { Grid, CircularProgress } from '@material-ui/core'
 import environment from '../environment'
 import getRecordsQuery from '../graphql/queries/getRecords'
 
@@ -21,7 +21,7 @@ const Main = () => {
           }
           if (!props) {
             return (
-              <p> loading </p>
+              <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
             )
           }
           return (

@@ -6,7 +6,7 @@ const printSchemaFromBuild = schema => {
     if (error) {
       return console.log(error)
     }
-    console.log('schema generated!') 
+    console.log('GraphQL schema generated!')
   })
 }
 

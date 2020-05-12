@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Typography, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
-import deleteRecordMutation from '../graphql/mutations/deleteRecord'
+// import deleteRecordMutation from '../graphql/mutations/deleteRecord'
 import UpdateRecord from './UpdateRecord'
 
 const Record = ({ record }) => {
@@ -9,86 +9,68 @@ const Record = ({ record }) => {
   const [ editing, setEditing ] = useState(false)
   const buttonLabel = editing ? 'cancel' : 'edit'
 
-  const style = {
-    key: {
-      width: '15%'
-    },
-    val: {
-      width: '85%'
-    },
-    jacket: {
-      width: '100%',
-      maxWidth: '300px'
-    },
-    btn: {
-      margin: '15px 0',
-      padding: '5px',
-      width: '100%'
-    }
-  }
-
   return (
     <React.Fragment>
       <Typography style={{ fontSize: '2em' }}>{title} by {authorFirst} {authorLast}</Typography>
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell style={style.key}>isbn</TableCell>
-            <TableCell style={style.val}>{isbn}</TableCell>
+            <TableCell style={{ width: '15%' }}>isbn</TableCell>
+            <TableCell style={{ width: '85%' }}>{isbn}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>title</TableCell>
-            <TableCell style={style.val}>{title}</TableCell>
+            <TableCell>title</TableCell>
+            <TableCell>{title}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>author first name(s)</TableCell>
-            <TableCell style={style.val}>{authorFirst}</TableCell>
+            <TableCell>author first name(s)</TableCell>
+            <TableCell>{authorFirst}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>author last name</TableCell>
-            <TableCell style={style.val}>{authorLast}</TableCell>
+            <TableCell>author last name</TableCell>
+            <TableCell>{authorLast}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>jacket path</TableCell>
-            <TableCell style={style.val}><img src={jacketPath} style={style.jacket}/></TableCell>
+            <TableCell>jacket path</TableCell>
+            <TableCell><img src={jacketPath} style={{ width: '100%', maxWidth: '300px' }}/></TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>imprint</TableCell>
-            <TableCell style={style.val}>{imprint}</TableCell>
+            <TableCell>imprint</TableCell>
+            <TableCell>{imprint}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>publisher</TableCell>
-            <TableCell style={style.val}>{publisher}</TableCell>
+            <TableCell>publisher</TableCell>
+            <TableCell>{publisher}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>publication year</TableCell>
-            <TableCell style={style.val}>{publicationYear}</TableCell>
+            <TableCell>publication year</TableCell>
+            <TableCell>{publicationYear}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>determination</TableCell>
-            <TableCell style={style.val}>{determination}</TableCell>
+            <TableCell>determination</TableCell>
+            <TableCell>{determination}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>review slug</TableCell>
-            <TableCell style={style.val}>{reviewSlug}</TableCell>
+            <TableCell>review slug</TableCell>
+            <TableCell>{reviewSlug}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>review body</TableCell>
-            <TableCell style={style.val}>{reviewBody}</TableCell>
+            <TableCell>review body</TableCell>
+            <TableCell>{reviewBody}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={style.key}>reviewer name</TableCell>
-            <TableCell style={style.val}>{reviewReviewerName}</TableCell>
+            <TableCell>reviewer name</TableCell>
+            <TableCell>{reviewReviewerName}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
-      <Button variant='outlined' style={style.btn} onClick={() => {
+      {/* <Button variant='outlined' style={style.btn} onClick={() => {
         deleteRecordMutation(_id)
       }}
       >
         Delete
-      </Button>
-      <Button variant='outlined' style={style.btn} onClick={() => {
+      </Button> */}
+      <Button variant='outlined' style={{ fontSize: '2em', margin: '1em 0', width: '100%' }} onClick={() => {
         setEditing(!editing)
       }}>
         {buttonLabel}

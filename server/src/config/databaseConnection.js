@@ -13,7 +13,9 @@ const setupDB = callback => {
   const uri = `mongodb+srv://${MONGO_DATABASE_USERNAME}:${MONGO_DATABASE_PASSWORD}@${MONGO_DATABASE_CLUSTER}.mongodb.net/test?retryWrites=true&w=majority`
 
   MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    // enable the following line to render possible errors in the terminal:
     // console.log('%%%%consider%%%% THIS ERROR:', err)
+
     mongoDB = client.db('cassidy')
     if (err) {
       return callback(err)

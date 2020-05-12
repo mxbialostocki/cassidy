@@ -8,15 +8,6 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 'none'
     }
   },
-  heading: {
-    lineHeight: '2em'
-  },
-  title: {
-    fontSize: '2em'
-  },
-  body: {
-    lineHeight: '1.2em'
-  },
   reviewDisplayFrame: {
     width: '70%',
     [theme.breakpoints.down('sm')]: {
@@ -41,14 +32,19 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100vh',
     justifyContent: 'center',
-    alignContent: 'center',
-    welcome: {
-      textAlign: 'center'
-    }
+    alignContent: 'center'
   },
   hidden: {
     display: 'none',
     lineHeight: '0'
+  },
+  daemonBtn: {
+    marginTop: '2em',
+    padding: '5px',
+    width: '100%'
+  },
+  extend: {
+    width: '100%'
   }
 }))
 

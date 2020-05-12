@@ -18,12 +18,12 @@ const Review = ({ record }) => {
         <Grid sm={12} md={4} item>
           <img className={styles.jacket} src={jacketPath} />
         </Grid>
-        <Grid sm={12} md={8} container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" style={{ paddingLeft: '1em' }}>
+        <Grid sm={12} md={8} item container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" style={{ paddingLeft: '1em' }}>
           <Grid item>
-            <Typography variant="h2" className={styles.heading}>{reviewSlug}</Typography>
+            <Typography variant="h2">{reviewSlug}</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h3" className={styles.title}>{title} by {authorFirst} {authorLast}</Typography>
+            <Typography variant="h3">{title} by {authorFirst} {authorLast}</Typography>
           </Grid>
           <Grid item>
             <Typography variant="h5">{imprint === 'null' ? null : imprint + ', '}{publisher} (ed.{publicationYear})</Typography>
