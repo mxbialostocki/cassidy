@@ -12,6 +12,7 @@ const ReviewDisplayFrame = ({ records }) => {
     )
   }
   const [titlesByDetermination, setTitlesByDetermination] = useState(randomTitle())
+
   const styles = useStyles()
 
   return (
@@ -20,7 +21,7 @@ const ReviewDisplayFrame = ({ records }) => {
         <Grid item>
           <Review record={records[titlesByDetermination]}/>
         </Grid>
-        <Grid item style={{ 'width': '100%', 'margin': '20px 0' }}>
+        <Grid item style={{ width: '100%', margin: '20px 0' }}>
           <Button variant='outlined' fullWidth={true} onClick={() => setTitlesByDetermination(randomTitle())}>
             <Typography variant="h3" >not this one</Typography>
           </Button>

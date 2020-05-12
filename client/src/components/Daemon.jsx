@@ -1,7 +1,6 @@
 import React from 'react'
 import { QueryRenderer } from 'react-relay'
-import { Loader } from 'semantic-ui-react'
-import { Grid } from '@material-ui/core'
+import { Grid, CircularProgress } from '@material-ui/core'
 import environment from '../environment'
 import getRecordsQuery from '../graphql/queries/getRecords'
 
@@ -9,16 +8,10 @@ import getRecordsQuery from '../graphql/queries/getRecords'
 import CreateRecord from './CreateRecord'
 import DisplayRecords from './DisplayRecords'
 
-const style = {
-  padding: '50px',
-  width: '100vw',
-  height: '100vh'
-}
-
 const Daemon = () => {
   return (
     <React.Fragment>
-      <Grid container direction="column" justify="flex-start" alignItems="center" style={style}>
+      <Grid container direction="column" justify="flex-start" alignItems="center" style={{ padding: '50px', width: '100vw', height: '100vh' }}>
         <Grid item>
           <CreateRecord />
           <QueryRenderer
@@ -32,7 +25,7 @@ const Daemon = () => {
               }
               if (!props) {
                 return (
-                  <Loader active inline="centered" />
+                  <CircularProgress style={{ color: '#000000' }}/>
                 )
               }
               return <DisplayRecords {...props} />
