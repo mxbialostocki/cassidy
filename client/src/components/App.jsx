@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 // component imports
 import HomePage from './HomePage'
 import Daemon from './Daemon'
-// import Main from './Main'
 
 const App = () => {
   return (
