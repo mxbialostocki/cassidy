@@ -15,5 +15,5 @@ client/public/images
 **/__generated__/**
 
 # ghosting documents
-frontlist.md
+frontlist.js
 .dataSchema.md
