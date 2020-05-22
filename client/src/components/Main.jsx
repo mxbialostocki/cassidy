@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { QueryRenderer } from 'react-relay'
 import { Grid, CircularProgress } from '@material-ui/core'
 import environment from '../environment'
@@ -8,6 +9,7 @@ import getRecordsQuery from '../graphql/queries/getRecords'
 import ReviewDisplayFrame from './ReviewDisplayFrame'
 
 const Main = () => {
+  let { isbn } = useParams()
   return (
     <React.Fragment>
       <QueryRenderer
@@ -26,7 +28,7 @@ const Main = () => {
           }
           return (
             <Grid container direction="row" justify="center" alignItems="center">
-              <ReviewDisplayFrame {...props} />
+              <ReviewDisplayFrame {...props} isbn={isbn} />
             </Grid>
           )
         }}

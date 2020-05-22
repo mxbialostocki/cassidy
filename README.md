@@ -20,7 +20,7 @@ If you alter your queries at all, you will need to run `npm run relay` again
 The previous iteration of Cassidy used Redux for state management and sqlite as a Database. This iteration started with the jambu boilerplate(https://github.com/mxbialostocki/jambu), using React, Relay and Javascript on the front end and MongoDB, GraphQL and Express on the back end, with most styling in Material-UI.
 
 ### to do
-[-] anchor randomiser
+[x] params
 [-] daemon auth
 [-] jacket filepath
 [-] bookstore seeking link
@@ -29,3 +29,5 @@ The previous iteration of Cassidy used Redux for state management and sqlite as 
 [-] write determination buttons
 [-] imprint={void} true
 [-] strip legacy styling
+[-] scroll-to-top in mobile view
+[-] refactor query structure
