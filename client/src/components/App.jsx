@@ -10,8 +10,8 @@ const App = () => {
     <React.Fragment>
       <Switch>
         <Route exact path='/' render={props => <HomePage {...props} initial={true} />} />
-        <Route exact path='/:isbn' render={props => <HomePage {...props} initial={false} />} />
         <Route exact path='/daemon' component={Daemon} />
+        <Route exact path='/:isbn' render={props => <HomePage {...props} initial={false} />} />
       </Switch>
     </React.Fragment>
   )
