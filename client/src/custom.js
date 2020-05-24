@@ -9,7 +9,11 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   reviewDisplayFrame: {
-    width: '70%',
+    width: '50%',
+    [theme.breakpoints.down('lg')]: {
+      width: '60%',
+      padding: '15px'
+    },
     [theme.breakpoints.down('sm')]: {
       width: '80%',
       padding: '15px'
