@@ -32,3 +32,5 @@ The previous iteration of Cassidy used Redux for state management and sqlite as 
 - [-] scroll-to-top in mobile view
 - [-] refactor query structure
 - [-] Typography >> Markdown
+- [-] Sizing for xl devices
+- [-] directory structure >> lib
