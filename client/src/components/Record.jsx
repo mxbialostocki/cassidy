@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Typography, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
-// import deleteRecordMutation from '../graphql/mutations/deleteRecord'
 import UpdateRecord from './UpdateRecord'
 
 const Record = ({ record }) => {
@@ -64,12 +63,6 @@ const Record = ({ record }) => {
           </TableRow>
         </TableBody>
       </Table>
-      {/* <Button variant='outlined' style={style.btn} onClick={() => {
-        deleteRecordMutation(_id)
-      }}
-      >
-        Delete
-      </Button> */}
       <Button variant='outlined' style={{ fontSize: '2em', margin: '1em 0', width: '100%' }} onClick={() => {
         setEditing(!editing)
       }}>

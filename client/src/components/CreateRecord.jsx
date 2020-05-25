@@ -3,7 +3,7 @@ import { Button, Typography, Input, Table, TableBody, TableRow, TableCell } from
 
 import createRecordMutation from '../graphql/mutations/createRecord'
 
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 
 const CreateRecord = () => {
   const [newRecordIsbn, setNewRecordIsbn] = useState('')

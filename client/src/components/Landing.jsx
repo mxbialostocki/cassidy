@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography, Grid } from '@material-ui/core'
 
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 
 const Landing = ({ clickHandler }) => {
   const styles = useStyles()

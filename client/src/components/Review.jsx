@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import ReactMarkdown from 'react-markdown'
 
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 
 const Review = ({ record }) => {
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record

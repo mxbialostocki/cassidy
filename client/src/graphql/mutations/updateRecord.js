@@ -1,5 +1,5 @@
 import { commitMutation, graphql } from 'react-relay'
-import environment from '../../environment'
+import environment from '../../lib/environment'
 
 const mutation = graphql`
   mutation updateRecordMutation($_id: ID, $isbn: String, $title: String, $authorFirst: String, $authorLast: String, $jacketPath: String, $imprint: String, $publisher: String, $publicationYear: String, $determination: String, $reviewSlug: String, $reviewBody: String, $reviewReviewerName: String) {

@@ -4,7 +4,6 @@ import { Button } from '@material-ui/core'
 import Record from './Record.jsx'
 
 const DisplayRecords = ({ records }) => {
-
   const [sortFilter, setSortFilter] = useState('dateCreated')
   const sortedRecords = records.slice().sort((a, b) => a[sortFilter] - b[sortFilter])
 
