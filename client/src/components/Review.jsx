@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typography, Grid } from '@material-ui/core'
+import ReactMarkdown from 'react-markdown'
 
 import useStyles from '../custom'
 
@@ -29,7 +30,9 @@ const Review = ({ record }) => {
             <Typography variant="h5">{imprint === 'null' ? null : imprint + ', '}{publisher} (ed.{publicationYear})</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h4">{reviewBody}</Typography>
+            <Typography variant="h4">
+              <ReactMarkdown linkTarget="_blank" source={reviewBody}/>
+            </Typography>
           </Grid>
           <Grid item className={styles.hidden}>
             <Typography variant="h5">review by {reviewReviewerName}</Typography>

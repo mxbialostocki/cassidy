@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
   reviewDisplayFrame: {
     width: '50%',
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down('xl')]: {
       width: '60%',
       padding: '15px'
     },
