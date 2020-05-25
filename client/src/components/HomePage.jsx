@@ -4,10 +4,12 @@ import useStyles from '../custom'
 import Landing from './Landing'
 import Main from './Main'
 
-const HomePage = () => {
+const HomePage = ({ initial }) => {
+  console.log({ initial })
   const styles = useStyles()
 
-  const [ isInitialLoad, setIsInitialLoad ] = useState(true)
+  const [ isInitialLoad, setIsInitialLoad ] = useState(initial)
+  console.log(isInitialLoad)
   const activePage = isInitialLoad ? <Landing clickHandler={setIsInitialLoad}/> : <Main />
 
   return (

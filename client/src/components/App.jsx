@@ -9,8 +9,9 @@ const App = () => {
   return (
     <React.Fragment>
       <Switch>
-        <Route exact path='/' component={HomePage} />
+        <Route exact path='/' render={props => <HomePage {...props} initial={true} />} />
         <Route exact path='/daemon' component={Daemon} />
+        <Route exact path='/:isbn' render={props => <HomePage {...props} initial={false} />} />
       </Switch>
     </React.Fragment>
   )
