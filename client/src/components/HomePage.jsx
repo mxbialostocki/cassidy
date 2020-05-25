@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 import Landing from './Landing'
 import Main from './Main'
 
 const HomePage = ({ initial }) => {
-  console.log({ initial })
   const styles = useStyles()
 
   const [ isInitialLoad, setIsInitialLoad ] = useState(initial)
-  console.log(isInitialLoad)
   const activePage = isInitialLoad ? <Landing clickHandler={setIsInitialLoad}/> : <Main />
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { QueryRenderer } from 'react-relay'
 import { Grid, CircularProgress } from '@material-ui/core'
-import environment from '../environment'
+import environment from '../lib/environment'
 import getRecordsQuery from '../graphql/queries/getRecords'
 
 // component imports

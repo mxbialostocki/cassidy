@@ -3,7 +3,7 @@ import { Button, Input, Table, TableBody, TableRow, TableCell, Typography } from
 
 import updateRecord from '../graphql/mutations/updateRecord'
 
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 
 const UpdateRecord = ({ record, setEditing }) => {
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Typography, Grid, Button } from '@material-ui/core'
 
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 
 import Review from './Review'
 
