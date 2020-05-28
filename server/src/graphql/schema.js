@@ -1,5 +1,6 @@
 const { GraphQLSchema, GraphQLObjectType } = require('graphql')
 const { RecordsQuery } = require('./query/RecordsQuery')
+const { RecordQuery } = require('./query/RecordQuery')
 const {
   CreateRecordMutation,
   UpdateRecordMutation,
@@ -9,7 +10,8 @@ const {
 const QueryType = new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
-    records: RecordsQuery
+    records: RecordsQuery,
+    record: RecordQuery
   })
 })
 
