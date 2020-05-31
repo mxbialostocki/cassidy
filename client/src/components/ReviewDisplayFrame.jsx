@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Typography, Grid, Button } from '@material-ui/core'
+import { QueryRenderer } from 'react-relay'
+import environment from '../lib/environment'
+import getRecordByISBNQuery from '../graphql/queries/getRecordByISBN'
+import { Typography, Grid, Button, CircularProgress } from '@material-ui/core'
 
 import useStyles from '../lib/custom'
 
@@ -11,28 +14,47 @@ const ReviewDisplayFrame = ({ records, isbn }) => {
   const styles = useStyles()
 
   const randomTitle = () => {
-    return Math.floor(Math.random() * records.length)
+    const randomIndex = Math.floor(Math.random() * records.length)
+    return records[randomIndex].isbn
   }
+
   const navigateToRandomTitle = () => {
-    const randomIndex = randomTitle()
-    history.push(`/${randomIndex}`)
-    setTitlesByDetermination(randomIndex)
+    const randomISBN = randomTitle()
+    history.push(`/${randomISBN}`)
   }
-  const title = isbn || randomTitle()
-  const [titlesByDetermination, setTitlesByDetermination] = useState(title)
+
+  const titleISBN = isbn || randomTitle()
 
   return (
     <React.Fragment>
-      <Grid container spacing={2} direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
-        <Grid item>
-          <Review record={records[titlesByDetermination]}/>
-        </Grid>
-        <Grid item style={{ width: '100%', margin: '20px 0' }}>
-          <Button variant='outlined' fullWidth={true} onClick={() => navigateToRandomTitle()}>
-            <Typography variant="h3" >not this one</Typography>
-          </Button>
-        </Grid>
-      </Grid>
+      <QueryRenderer
+        environment={environment}
+        query={getRecordByISBNQuery}
+        variables={{ isbn: titleISBN }}
+        render={({ error, props }) => {
+          if (error) {
+            return <div>{error.message}</div>
+          }
+          if (!props) {
+            return <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
+          } else if (props) {
+            const { record } = props
+            return (
+              <Grid container spacing={2} direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
+                <Grid item>
+                  <Review record={record} />
+                </Grid>
+                <Grid item style={{ width: '100%', margin: '20px 0' }}>
+                  <Button variant='outlined' fullWidth={true} onClick={() => navigateToRandomTitle()}>
+                    <Typography variant="h3" >not this one</Typography>
+                  </Button>
+                </Grid>
+              </Grid>
+            )
+          }
+        }
+        }
+      />
     </React.Fragment>
   )
 }

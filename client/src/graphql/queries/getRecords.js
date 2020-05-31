@@ -8,14 +8,6 @@ const getRecordsQuery = graphql`
       title
       authorFirst
       authorLast
-      jacketPath
-      imprint
-      publisher
-      publicationYear
-      determination
-      reviewSlug
-      reviewBody
-      reviewReviewerName
     }
   }
 `

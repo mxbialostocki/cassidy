@@ -9,6 +9,10 @@ class RecordService {
     return this.RecordRepository.getAll()
   }
 
+  getRecordByISBN (isbn) {
+    return this.RecordRepository.getByISBN(isbn)
+  }
+
   updateRecord (_id, opt) {
     return this.RecordRepository.updateOne(_id, opt)
   }

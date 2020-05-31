@@ -28,6 +28,17 @@ class MongoDbRepo {
     })
   }
 
+  getByISBN(isbn) {
+    return new Promise((resolve, reject) => {
+      this.collection.findOne({ isbn: isbn }, (err, data) => {
+        if (err) {
+          reject(err)
+        }
+        resolve(data)
+      })
+    })
+  }
+
   updateOne(_id, opt) {
     return new Promise((resolve, reject) => {
       this.collection.findOneAndUpdate(

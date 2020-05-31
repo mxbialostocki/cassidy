@@ -1,38 +1,17 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { QueryRenderer } from 'react-relay'
-import { Grid, CircularProgress } from '@material-ui/core'
-import environment from '../lib/environment'
-import getRecordsQuery from '../graphql/queries/getRecords'
+import { Grid } from '@material-ui/core'
 
 // component imports
 import ReviewDisplayFrame from './ReviewDisplayFrame'
 
-const Main = () => {
+const Main = ({ records }) => {
   let { isbn } = useParams()
   return (
     <React.Fragment>
-      <QueryRenderer
-        environment={environment}
-        query={getRecordsQuery}
-        variables={{}}
-        render={({ error, props }) => {
-          if (error) {
-            console.log({ error })
-            return <div>`eerrr0r`</div>
-          }
-          if (!props) {
-            return (
-              <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
-            )
-          }
-          return (
-            <Grid container direction="row" justify="center" alignItems="center">
-              <ReviewDisplayFrame {...props} isbn={isbn} />
-            </Grid>
-          )
-        }}
-      />
+      <Grid container direction="row" justify="center" alignItems="center">
+        <ReviewDisplayFrame records={records} isbn={isbn} />
+      </Grid>
     </React.Fragment>
   )
 }

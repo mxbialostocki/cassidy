@@ -1,5 +1,6 @@
 type Query {
   records: [Record]
+  record(isbn: String): Record
 }
 
 type Record {
