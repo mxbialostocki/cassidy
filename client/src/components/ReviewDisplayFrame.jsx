@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { QueryRenderer } from 'react-relay'
 import environment from '../lib/environment'
@@ -12,30 +12,19 @@ import Review from './Review'
 const ReviewDisplayFrame = ({ records, isbn }) => {
   const history = useHistory()
   const styles = useStyles()
-  const [activeTitle, setActiveTitle] = useState()
 
   const randomTitle = () => {
     const randomIndex = Math.floor(Math.random() * records.length)
-    console.log('checjk one', records[randomIndex])
-    console.log('checjk two', records[randomIndex].isbn)
     return records[randomIndex].isbn
   }
 
   const navigateToRandomTitle = () => {
     const randomISBN = randomTitle()
     history.push(`/${randomISBN}`)
-    // setTitlesByDetermination(randomISBN)
   }
 
   const titleISBN = isbn || randomTitle()
 
-  // const [titlesByDetermination, setTitlesByDetermination] = useState(titleISBN)
-  const variables = { isbn: titleISBN }
-  // fetchQuery(environment, getRecordByISBNQuery, variables).then((record) => {
-  //   console.log("i tried to refetch")
-  //   setActiveTitle(record)
-  // })
-  // console.log(activeTitle)
   return (
     <React.Fragment>
       <QueryRenderer
@@ -43,10 +32,11 @@ const ReviewDisplayFrame = ({ records, isbn }) => {
         query={getRecordByISBNQuery}
         variables={{ isbn: titleISBN }}
         render={({ error, props }) => {
-          console.log(props)
-          console.log(error)
           if (error) {
             return <div>{error.message}</div>
+          }
+          if (!props) {
+            return <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
           } else if (props) {
             const { record } = props
             return (
@@ -62,7 +52,6 @@ const ReviewDisplayFrame = ({ records, isbn }) => {
               </Grid>
             )
           }
-          return <div>Loading</div>
         }
         }
       />
