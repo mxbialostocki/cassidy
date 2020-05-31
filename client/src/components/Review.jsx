@@ -5,12 +5,12 @@ import ReactMarkdown from 'react-markdown'
 import useStyles from '../lib/custom'
 
 const Review = ({ record }) => {
+  if (!record) {
+    return null
+  }
+
   const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
-  // const thisRecord = {
-  //   _id,
-  //   isbn,
-  //   determination
-  // }
+
   const styles = useStyles()
 
   return (
