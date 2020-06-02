@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { QueryRenderer } from 'react-relay'
 import environment from '../lib/environment'
@@ -21,6 +21,9 @@ const ReviewDisplayFrame = ({ records, isbn }) => {
   const navigateToRandomTitle = () => {
     const randomISBN = randomTitle()
     history.push(`/${randomISBN}`)
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
   }
 
   const titleISBN = isbn || randomTitle()
