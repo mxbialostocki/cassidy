@@ -1,4 +1,5 @@
 const path = require('path')
+// uncomment this to identify bundle sizing issues:
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
@@ -42,11 +43,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+  node: {
+    global: true
   }
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'public')
-  // }
-  // plugins: [
-  //   new BundleAnalyzerPlugin()
-  // ]
 }
