@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 'none'
     }
   },
+  // these breakpoints are how Material-ui determines how the structure displays on different screen sizes
   reviewDisplayFrame: {
     width: '50%',
     [theme.breakpoints.down('xl')]: {
