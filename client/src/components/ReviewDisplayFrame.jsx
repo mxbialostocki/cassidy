@@ -39,7 +39,11 @@ const ReviewDisplayFrame = ({ records, isbn }) => {
             return <div>{error.message}</div>
           }
           if (!props) {
-            return <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
+            return (
+              <Grid container spacing={2} direction="column" justify="center" alignItems="center">
+                <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
+              </Grid>
+            )
           } else if (props) {
             const { record } = props
             return (
