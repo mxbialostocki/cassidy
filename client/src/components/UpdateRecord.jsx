@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Input, Table, TableBody, TableRow, TableCell, Typography } from '@material-ui/core'
+import { Button, Input, Grid, Table, TableBody, TableRow, TableCell, Typography } from '@material-ui/core'
 
 import updateRecord from '../graphql/mutations/updateRecord'
 
@@ -25,7 +25,9 @@ const UpdateRecord = ({ record, setEditing }) => {
 
   return (
     <React.Fragment>
+
       <Typography style={{ fontSize: '2em' }}>{title} by {authorFirst} {authorLast}</Typography>
+
       <Table>
         <TableBody>
           <TableRow>
@@ -102,6 +104,7 @@ const UpdateRecord = ({ record, setEditing }) => {
           </TableRow>
         </TableBody>
       </Table>
+
       <Button variant='outlined' style={{ fontSize: '2em', margin: '1em 0', width: '100%' }} onClick={() => {
         updateRecord(_id, isbnInputState, titleInputState, authorFirstInputState, authorLastInputState, jacketPathInputState, imprintInputState, publisherInputState, publicationYearInputState, determinationInputState, reviewSlugInputState, reviewBodyInputState, reviewReviewerNameInputState)
         setEditing(false)
