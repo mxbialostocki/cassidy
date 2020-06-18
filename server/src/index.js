@@ -16,6 +16,7 @@ printSchemaFromBuild(schema)
 // Call in database connection
 setupDB(value => console.log(value))
 
+app.use(express.json({ limit: '5mb' }))
 app.use(express.static('client/public'))
 app.use(cors())
 
