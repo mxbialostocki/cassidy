@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { QueryRenderer } from 'react-relay'
 import environment from '../lib/environment'
 import getRecordsQuery from '../graphql/queries/getRecords'
-import { CircularProgress } from '@material-ui/core'
+import { Grid, CircularProgress } from '@material-ui/core'
 
 // component imports
 import HomePage from './HomePage'
@@ -22,7 +22,11 @@ const App = () => {
             return <div>`eerrr0r`</div>
           }
           if (!props) {
-            return <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
+            return (
+              <Grid container spacing={2} direction="column" justify="center" alignItems="center" style={{ height: '100vh' }}>
+                <CircularProgress size={'9rem'} style={{ color: '#000000' }}/>
+              </Grid>
+            )
           } else {
             const { records } = props
             return (

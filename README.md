@@ -30,7 +30,9 @@ The previous iteration of Cassidy used Redux for state management and sqlite as 
 - [ ] imprint={void} true
 - [ ] strip legacy styling
 - [ ] scroll-to-top in mobile view
-- [ ] refactor query structure
+- [x] refactor query structure
 - [x] Typography >> Markdown
 - [x] Sizing for xl devices
 - [x] directory structure >> lib
+- [ ] unit tests(jest)
+- [ ] end-to-end tests(cypress)
