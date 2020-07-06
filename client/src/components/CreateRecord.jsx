@@ -25,7 +25,7 @@ const CreateRecord = () => {
 
   const styles = useStyles()
 
-  const handleChange = (event) => {
+  const handleDeterminationChange = (event) => {
     setNewRecordDetermination({ ...newRecordDetermination, [event.target.name]: event.target.checked })
   }
   const { novel, memoir, shorts } = newRecordDetermination
@@ -92,15 +92,15 @@ const CreateRecord = () => {
                 <FormLabel component="legend">This is primarily a:</FormLabel>
                 <FormGroup>
                   <FormControlLabel
-                    control={<Checkbox checked={novel} onChange={handleChange} name="novel" />}
+                    control={<Checkbox checked={novel} onChange={handleDeterminationChange} name="novel" />}
                     label="novel"
                   />
                   <FormControlLabel
-                    control={<Checkbox onChange={handleChange} name="memoir" />}
+                    control={<Checkbox onChange={handleDeterminationChange} name="memoir" />}
                     label="memoir"
                   />
                   <FormControlLabel
-                    control={<Checkbox onChange={handleChange} name="short-stories" />}
+                    control={<Checkbox onChange={handleDeterminationChange} name="short-stories" />}
                     label="shorts"
                   />
                 </FormGroup>
@@ -138,7 +138,11 @@ const CreateRecord = () => {
           setNewRecordImprint('')
           setNewRecordPublisher('')
           setNewRecordPublicationYear('')
-          setNewRecordDetermination('')
+          setNewRecordDetermination({
+            novel: true,
+            memoir: false,
+            shorts: false
+          })
           setNewRecordReviewSlug('')
           setNewRecordReviewBody('')
           setNewRecordReviewReviewerName('')
