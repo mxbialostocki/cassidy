@@ -12,7 +12,7 @@ const getRecordByISBNQuery = graphql`
       imprint
       publisher
       publicationYear
-      determination
+      contexts
       reviewSlug
       reviewBody
       reviewReviewerName
