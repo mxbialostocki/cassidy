@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Typography, Input, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
+import { Button, Typography, Input, FormGroup, FormLabel, FormControl, FormControlLabel, Checkbox, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import createRecordMutation from '../graphql/mutations/createRecord'
 
@@ -14,12 +14,22 @@ const CreateRecord = () => {
   const [newRecordImprint, setNewRecordImprint] = useState('')
   const [newRecordPublisher, setNewRecordPublisher] = useState('')
   const [newRecordPublicationYear, setNewRecordPublicationYear] = useState('')
-  const [newRecordDetermination, setNewRecordDetermination] = useState('')
+  const [newRecordDetermination, setNewRecordDetermination] = useState({
+    novel: true,
+    memoir: false,
+    shorts: false
+  })
   const [newRecordReviewSlug, setNewRecordReviewSlug] = useState('')
   const [newRecordReviewBody, setNewRecordReviewBody] = useState('')
   const [newRecordReviewReviewerName, setNewRecordReviewReviewerName] = useState('')
 
   const styles = useStyles()
+
+  const handleDeterminationChange = (event) => {
+    setNewRecordDetermination({ ...newRecordDetermination, [event.target.name]: event.target.checked })
+  }
+  const { novel, memoir, shorts } = newRecordDetermination
+
 
   return (
     <React.Fragment>
@@ -78,7 +88,23 @@ const CreateRecord = () => {
           <TableRow>
             <TableCell>determination</TableCell>
             <TableCell>
-              <Input disableUnderline className={styles.extend} size="big" type="text" value={newRecordDetermination} onChange={(event) => { setNewRecordDetermination(event.target.value) }} placeholder="what g3Nree/.  is this eg. novel? poetry? shorts?"/>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">This is primarily a:</FormLabel>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox checked={novel} onChange={handleDeterminationChange} name="novel" />}
+                    label="novel"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox onChange={handleDeterminationChange} name="memoir" />}
+                    label="memoir"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox onChange={handleDeterminationChange} name="short-stories" />}
+                    label="shorts"
+                  />
+                </FormGroup>
+              </FormControl>
             </TableCell>
           </TableRow>
           <TableRow>
@@ -112,7 +138,11 @@ const CreateRecord = () => {
           setNewRecordImprint('')
           setNewRecordPublisher('')
           setNewRecordPublicationYear('')
-          setNewRecordDetermination('')
+          setNewRecordDetermination({
+            novel: true,
+            memoir: false,
+            shorts: false
+          })
           setNewRecordReviewSlug('')
           setNewRecordReviewBody('')
           setNewRecordReviewReviewerName('')
