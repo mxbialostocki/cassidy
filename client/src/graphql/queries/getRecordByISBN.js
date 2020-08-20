@@ -6,8 +6,7 @@ const getRecordByISBNQuery = graphql`
       _id
       isbn
       title
-      authorFirst
-      authorLast
+      author
       jacketPath
       imprint
       publisher

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { recordType, contextsType } = require('../recordTypes')
+const { recordType, contextsType, AuthorType } = require('../recordTypes')
 const {
   GraphQLString,
   GraphQLID
@@ -11,8 +11,7 @@ const CreateRecordMutation = {
   args: {
     isbn: { type: GraphQLString },
     title: { type: GraphQLString },
-    authorFirst: { type: GraphQLString },
-    authorLast: { type: GraphQLString },
+    author: { type: AuthorType },
     jacketPath: { type: GraphQLString },
     imprint: { type: GraphQLString },
     publisher: { type: GraphQLString },
@@ -24,10 +23,10 @@ const CreateRecordMutation = {
     dateCreated: { type: GraphQLString },
     dateModified: { type: GraphQLString }
   },
-  resolve: async (_, { isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName }) => {
+  resolve: async (_, { isbn, title, author, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName }) => {
     const recordService = new RecordService()
     const dateCreated = Date.now()
-    const newRecord = await recordService.createRecord({ isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName, dateCreated })
+    const newRecord = await recordService.createRecord({ isbn, title, author, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName, dateCreated })
 
     return newRecord
   }
@@ -54,8 +53,7 @@ const UpdateRecordMutation = {
     _id: { type: GraphQLID },
     isbn: { type: GraphQLString },
     title: { type: GraphQLString },
-    authorFirst: { type: GraphQLString },
-    authorLast: { type: GraphQLString },
+    author: { type: AuthorType },
     jacketPath: { type: GraphQLString },
     imprint: { type: GraphQLString },
     publisher: { type: GraphQLString },
@@ -65,10 +63,10 @@ const UpdateRecordMutation = {
     reviewBody: { type: GraphQLString },
     reviewReviewerName: { type: GraphQLString }
   },
-  resolve: async (_, { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName }) => {
+  resolve: async (_, { _id, isbn, title, author, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName }) => {
     const recordService = new RecordService()
     const dateModified = Date.now()
-    const updatedRecord = await recordService.updateRecord(_id, { isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName, dateModified })
+    const updatedRecord = await recordService.updateRecord(_id, { isbn, title, author, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName, dateModified })
 
     return updatedRecord
   }

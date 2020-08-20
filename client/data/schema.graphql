@@ -7,8 +7,7 @@ type Record {
   _id: ID!
   isbn: String
   title: String
-  authorFirst: String
-  authorLast: String
+  author(firstName: String, lastName: String): Author
   jacketPath: String
   imprint: String
   publisher: String
@@ -21,10 +20,12 @@ type Record {
   dateModified: String
 }
 
+scalar Author
+
 scalar Contexts
 
 type Mutation {
-  createRecord(isbn: String, title: String, authorFirst: String, authorLast: String, jacketPath: String, imprint: String, publisher: String, publicationYear: String, contexts: Contexts, reviewSlug: String, reviewBody: String, reviewReviewerName: String, dateCreated: String, dateModified: String): Record
+  createRecord(isbn: String, title: String, author: Author, jacketPath: String, imprint: String, publisher: String, publicationYear: String, contexts: Contexts, reviewSlug: String, reviewBody: String, reviewReviewerName: String, dateCreated: String, dateModified: String): Record
   deleteRecord(_id: ID): ID
-  updateRecord(_id: ID, isbn: String, title: String, authorFirst: String, authorLast: String, jacketPath: String, imprint: String, publisher: String, publicationYear: String, contexts: Contexts, reviewSlug: String, reviewBody: String, reviewReviewerName: String): Record
+  updateRecord(_id: ID, isbn: String, title: String, author: Author, jacketPath: String, imprint: String, publisher: String, publicationYear: String, contexts: Contexts, reviewSlug: String, reviewBody: String, reviewReviewerName: String): Record
 }
