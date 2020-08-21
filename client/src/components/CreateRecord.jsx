@@ -1,25 +1,43 @@
 import React, { useState } from 'react'
-import { Button, Typography, Input, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
+import { Button, Typography, Input, FormGroup, FormLabel, FormControl, FormControlLabel, FormHelperText, Checkbox, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import createRecordMutation from '../graphql/mutations/createRecord'
 
-import useStyles from '../custom'
+import useStyles from '../lib/custom'
 
 const CreateRecord = () => {
   const [newRecordIsbn, setNewRecordIsbn] = useState('')
   const [newRecordTitle, setNewRecordTitle] = useState('')
-  const [newRecordAuthorFirstName, setNewRecordAuthorFirstName] = useState('')
-  const [newRecordAuthorLastName, setNewRecordAuthorLastName] = useState('')
+  const [newRecordAuthor, setNewRecordAuthor] = useState({
+    firstName: '',
+    lastName: ''
+  })
   const [newRecordJacket, setNewRecordJacket] = useState('')
   const [newRecordImprint, setNewRecordImprint] = useState('')
   const [newRecordPublisher, setNewRecordPublisher] = useState('')
   const [newRecordPublicationYear, setNewRecordPublicationYear] = useState('')
-  const [newRecordDetermination, setNewRecordDetermination] = useState('')
+  const [newRecordContexts, setNewRecordContexts] = useState({
+    novel: false,
+    memoir: false,
+    shorts: false,
+    aotearoa: false
+  })
   const [newRecordReviewSlug, setNewRecordReviewSlug] = useState('')
   const [newRecordReviewBody, setNewRecordReviewBody] = useState('')
   const [newRecordReviewReviewerName, setNewRecordReviewReviewerName] = useState('')
 
   const styles = useStyles()
+
+  const handleContextsChange = event => {
+    setNewRecordContexts({ ...newRecordContexts, [event.target.name]: event.target.checked })
+  }
+
+  const handleAuthorChange = event => {
+    setNewRecordAuthor({ ...newRecordAuthor, [event.target.name]: event.target.value })
+    console.log({ newRecordAuthor })
+  }
+
+  const { novel, memoir, shorts, aotearoa } = newRecordContexts
 
   return (
     <React.Fragment>
@@ -41,15 +59,10 @@ const CreateRecord = () => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>author first name(s)</TableCell>
+            <TableCell>author</TableCell>
             <TableCell>
-              <Input disableUnderline className={styles.extend} size="big" type="text" value={newRecordAuthorFirstName} onChange={(event) => { setNewRecordAuthorFirstName(event.target.value) }} placeholder="Author: First Name" />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>author last name</TableCell>
-            <TableCell>
-              <Input disableUnderline className={styles.extend} size="big" type="text" value={newRecordAuthorLastName} onChange={(event) => { setNewRecordAuthorLastName(event.target.value) }} placeholder="Author: Last Name" />
+              <Input disableUnderline className={styles.extend} size="big" type="text" name={'firstName'} value={newRecordAuthor.firstName} onChange={handleAuthorChange} placeholder="Author: First Name" />
+              <Input disableUnderline className={styles.extend} size="big" type="text" name={'lastName'} value={newRecordAuthor.lastName} onChange={handleAuthorChange} placeholder="Author: Last Name" />
             </TableCell>
           </TableRow>
           <TableRow>
@@ -76,9 +89,30 @@ const CreateRecord = () => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>determination</TableCell>
+            <TableCell>contexts</TableCell>
             <TableCell>
-              <Input disableUnderline className={styles.extend} size="big" type="text" value={newRecordDetermination} onChange={(event) => { setNewRecordDetermination(event.target.value) }} placeholder="what g3Nree/.  is this eg. novel? poetry? shorts?"/>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">This is primarily a:</FormLabel>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox checked={novel} onChange={handleContextsChange} name="novel" />}
+                    label="novel"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox checked={memoir} onChange={handleContextsChange} name="memoir" />}
+                    label="memoir"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox checked={shorts} onChange={handleContextsChange} name="shorts" />}
+                    label="shorts"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox checked={aotearoa} onChange={handleContextsChange} name="aotearoa" />}
+                    label="aotearoa"
+                  />
+                </FormGroup>
+                <FormHelperText>You can select multiple options</FormHelperText>
+              </FormControl>
             </TableCell>
           </TableRow>
           <TableRow>
@@ -102,17 +136,24 @@ const CreateRecord = () => {
         </TableBody>
       </Table>
       <Button variant='outlined' style={{ fontSize: '2em', margin: '1em 0', width: '100%' }} size="large" onClick={() => {
-        if (newRecordIsbn && newRecordTitle && newRecordAuthorFirstName && newRecordAuthorLastName && newRecordJacket && newRecordImprint && newRecordPublisher && newRecordPublicationYear && newRecordReviewSlug && newRecordReviewBody && newRecordReviewReviewerName) {
-          createRecordMutation(newRecordIsbn, newRecordTitle, newRecordAuthorFirstName, newRecordAuthorLastName, newRecordJacket, newRecordImprint, newRecordPublisher, newRecordPublicationYear, newRecordDetermination, newRecordReviewSlug, newRecordReviewBody, newRecordReviewReviewerName)
+        if (newRecordIsbn && newRecordTitle && newRecordAuthor.firstName && newRecordAuthor.lastName && newRecordJacket && newRecordImprint && newRecordPublisher && newRecordPublicationYear && newRecordReviewSlug && newRecordReviewBody && newRecordReviewReviewerName) {
+          createRecordMutation(newRecordIsbn, newRecordTitle, newRecordAuthor, newRecordJacket, newRecordImprint, newRecordPublisher, newRecordPublicationYear, newRecordContexts, newRecordReviewSlug, newRecordReviewBody, newRecordReviewReviewerName)
           setNewRecordIsbn('')
           setNewRecordTitle('')
-          setNewRecordAuthorFirstName('')
-          setNewRecordAuthorLastName('')
+          setNewRecordAuthor({
+            firstName: '',
+            lastName: ''
+          })
           setNewRecordJacket('')
           setNewRecordImprint('')
           setNewRecordPublisher('')
           setNewRecordPublicationYear('')
-          setNewRecordDetermination('')
+          setNewRecordContexts({
+            novel: false,
+            memoir: false,
+            shorts: false,
+            aotearoa: false
+          })
           setNewRecordReviewSlug('')
           setNewRecordReviewBody('')
           setNewRecordReviewReviewerName('')

@@ -17,3 +17,4 @@ client/public/images
 # ghosting documents
 frontlist.js
 .dataSchema.md
+testSchema.js

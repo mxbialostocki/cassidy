@@ -8,19 +8,20 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 'none'
     }
   },
+  // these breakpoints are how Material-ui determines how the structure displays on different screen sizes
   reviewDisplayFrame: {
     width: '50%',
     [theme.breakpoints.down('xl')]: {
       width: '60%',
-      padding: '15px'
+      padding: '1rem'
     },
     [theme.breakpoints.down('sm')]: {
-      width: '80%',
-      padding: '15px'
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '90%',
-      padding: '15px'
+      width: '100%'
+    }
+  },
+  review: {
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '4rem'
     }
   },
   homePage: {
@@ -49,6 +50,16 @@ const useStyles = makeStyles((theme) => ({
   },
   extend: {
     width: '100%'
+  },
+  not: {
+    background: '#ffffff',
+    width: '80%',
+    margin: '0 auto',
+    [theme.breakpoints.down('sm')]: {
+      position: 'fixed',
+      bottom: '0rem',
+      zIndex: '10'
+    }
   }
 }))
 
