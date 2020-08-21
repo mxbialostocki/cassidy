@@ -8,8 +8,7 @@ const getRecordsQuery = graphql`
       _id
       isbn
       title
-      authorFirst
-      authorLast
+      author
     }
   }
 `

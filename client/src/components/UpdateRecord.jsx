@@ -1,32 +1,50 @@
 import React, { useState } from 'react'
-import { Button, Input, Grid, Table, TableBody, TableRow, TableCell, Typography } from '@material-ui/core'
+import { Button, Input, Table, TableBody, TableRow, TableCell, Typography, FormControl, FormControlLabel, FormLabel, FormGroup, FormHelperText, Checkbox } from '@material-ui/core'
 
 import updateRecord from '../graphql/mutations/updateRecord'
 
 import useStyles from '../lib/custom'
 
 const UpdateRecord = ({ record, setEditing }) => {
-  const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
+  const { _id, isbn, title, author, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName } = record
+  const { firstName, lastName } = author
+  const { novel, memoir, shorts, aotearoa } = contexts
 
   const [ isbnInputState, setIsbnInputState ] = useState(isbn)
   const [ titleInputState, setTitleInputState ] = useState(title)
-  const [ authorFirstInputState, setAuthorFirstInputState ] = useState(authorFirst)
-  const [ authorLastInputState, setAuthorLastInputState ] = useState(authorLast)
+  const [ authorInputState, setAuthorInputState ] = useState({
+    firstName: firstName,
+    lastName: lastName
+  })
   const [ jacketPathInputState, setJacketPathInputState ] = useState(jacketPath)
   const [ imprintInputState, setImprintInputState ] = useState(imprint)
   const [ publisherInputState, setPublisherInputState ] = useState(publisher)
   const [ publicationYearInputState, setPublicationYearInputState ] = useState(publicationYear)
-  const [ determinationInputState, setDeterminationInputState ] = useState(determination)
+  const [ contextsInputState, setContextsInputState ] = useState({
+    novel: novel,
+    memoir: memoir,
+    shorts: shorts,
+    aotearoa: aotearoa
+  })
   const [ reviewSlugInputState, setReviewSlugInputState ] = useState(reviewSlug)
   const [ reviewBodyInputState, setReviewBodyInputState ] = useState(reviewBody)
   const [ reviewReviewerNameInputState, setReviewReviewerNameInputState ] = useState(reviewReviewerName)
 
   const styles = useStyles()
 
+  const handleContextsChange = event => {
+    setContextsInputState({ ...contextsInputState, [event.target.name]: event.target.checked })
+  }
+
+  const handleAuthorChange = event => {
+    setAuthorInputState({ ...authorInputState, [event.target.name]: event.target.value })
+    console.log({ authorInputState })
+  }
+
   return (
     <React.Fragment>
 
-      <Typography style={{ fontSize: '2em' }}>{title} by {authorFirst} {authorLast}</Typography>
+      <Typography style={{ fontSize: '2em' }}>{title} by {author.firstName} {author.lastName}</Typography>
 
       <Table>
         <TableBody>
@@ -43,15 +61,10 @@ const UpdateRecord = ({ record, setEditing }) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>author first name(s)</TableCell>
+            <TableCell>author</TableCell>
             <TableCell>
-              <Input disableUnderline className={styles.extend} value={authorFirstInputState} onChange={event => setAuthorFirstInputState(event.target.value)} placeholder={authorFirst}/>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>author last name</TableCell>
-            <TableCell>
-              <Input disableUnderline className={styles.extend} value={authorLastInputState} onChange={event => setAuthorLastInputState(event.target.value)} placeholder={authorLast}/>
+              <Input disableUnderline className={styles.extend} size="big" type="text" name={'firstName'} value={authorInputState.firstName} onChange={handleAuthorChange} placeholder="Author: First Name" />
+              <Input disableUnderline className={styles.extend} size="big" type="text" name={'lastName'} value={authorInputState.lastName} onChange={handleAuthorChange} placeholder="Author: Last Name" />
             </TableCell>
           </TableRow>
           <TableRow>
@@ -79,9 +92,30 @@ const UpdateRecord = ({ record, setEditing }) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>determination</TableCell>
+            <TableCell>contexts</TableCell>
             <TableCell>
-              <Input disableUnderline className={styles.extend} value={determinationInputState} onChange={event => setDeterminationInputState(event.target.value)} placeholder={determination}/>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">This is primarily a:</FormLabel>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox onChange={handleContextsChange} name="novel" />}
+                    label="novel"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox onChange={handleContextsChange} name="memoir" />}
+                    label="memoir"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox onChange={handleContextsChange} name="shorts" />}
+                    label="shorts"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox onChange={handleContextsChange} name="aotearoa" />}
+                    label="aotearoa"
+                  />
+                </FormGroup>
+                <FormHelperText>You can select multiple options</FormHelperText>
+              </FormControl>
             </TableCell>
           </TableRow>
           <TableRow>
@@ -106,7 +140,7 @@ const UpdateRecord = ({ record, setEditing }) => {
       </Table>
 
       <Button variant='outlined' style={{ fontSize: '2em', margin: '1em 0', width: '100%' }} onClick={() => {
-        updateRecord(_id, isbnInputState, titleInputState, authorFirstInputState, authorLastInputState, jacketPathInputState, imprintInputState, publisherInputState, publicationYearInputState, determinationInputState, reviewSlugInputState, reviewBodyInputState, reviewReviewerNameInputState)
+        updateRecord(_id, isbnInputState, titleInputState, authorInputState, jacketPathInputState, imprintInputState, publisherInputState, publicationYearInputState, contextsInputState, reviewSlugInputState, reviewBodyInputState, reviewReviewerNameInputState)
         setEditing(false)
       }}>
           Update

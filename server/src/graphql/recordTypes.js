@@ -10,14 +10,27 @@ const contextsType = new GraphQLScalarType({
   }
 })
 
+const AuthorType = new GraphQLScalarType({
+  name: 'Author',
+  fields: {
+    firstName: { type: GraphQLString },
+    lastName: { type: GraphQLString }
+  }
+})
+
 const recordType = new GraphQLObjectType({
   name: 'Record',
   fields: {
     _id: { type: new GraphQLNonNull(GraphQLID) },
     isbn: { type: GraphQLString },
     title: { type: GraphQLString },
-    authorFirst: { type: GraphQLString },
-    authorLast: { type: GraphQLString },
+    author: {
+      type: AuthorType,
+      args: {
+        firstName: { type: GraphQLString },
+        lastName: { type: GraphQLString }
+      }
+    },
     jacketPath: { type: GraphQLString },
     imprint: { type: GraphQLString },
     publisher: { type: GraphQLString },
@@ -39,4 +52,4 @@ const recordType = new GraphQLObjectType({
   }
 })
 
-module.exports = { recordType, contextsType }
+module.exports = { recordType, contextsType, AuthorType }

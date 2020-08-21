@@ -1,5 +1,5 @@
 import { commitMutation, graphql } from 'react-relay'
-import environment from '../../environment'
+import environment from '../../lib/environment'
 
 const mutation = graphql`
   mutation deleteRecordMutation($_id: ID) {
