@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { QueryRenderer } from 'react-relay'
 import environment from '../lib/environment'
 import getRecordByISBNQuery from '../graphql/queries/getRecordByISBN'
+// import deleteRecordMutation from '../graphql/mutations/deleteRecord'
 import { Button, Typography, Grid, CircularProgress } from '@material-ui/core'
 
 import UpdateRecord from './UpdateRecord'
@@ -20,6 +21,11 @@ const Record = ({ record }) => {
       }}>
         {buttonLabel}
       </Button>
+      {/* <Button variant='outlined' style={{ fontSize: '2em', margin: '1em 0', width: '100%' }} onClick={() => {
+        deleteRecordMutation(_id)
+      }}>
+        delete this one?
+      </Button> */}
       <QueryRenderer
         environment={environment}
         query={getRecordByISBNQuery}
