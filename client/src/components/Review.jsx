@@ -9,25 +9,26 @@ const Review = ({ record }) => {
     return null
   }
 
-  const { _id, isbn, title, authorFirst, authorLast, jacketPath, imprint, publisher, publicationYear, determination, reviewSlug, reviewBody, reviewReviewerName } = record
+  const { _id, isbn, title, author, jacketPath, imprint, publisher, publicationYear, contexts, reviewSlug, reviewBody, reviewReviewerName } = record
+  const { firstName, lastName } = author
 
   const styles = useStyles()
 
   return (
     <React.Fragment>
       <Grid container spacing={2} justify="center">
-        <Grid sm={12} md={4} item>
+        <Grid xs={12} md={4} item>
           <img className={styles.jacket} src={jacketPath} />
         </Grid>
-        <Grid sm={12} md={8} item container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" style={{ paddingLeft: '1em' }}>
+        <Grid xs={12} md={8} item container spacing={2} direction="column" justify="flex-start" alignItems="flex-start" style={{ paddingLeft: '1em' }}>
           <Grid item>
             <Typography variant="h2">{reviewSlug}</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h3">{title} by {authorFirst} {authorLast}</Typography>
+            <Typography variant="h3">{title} by {firstName} {lastName}</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h5">{imprint === 'null' ? null : imprint + ', '}{publisher} (ed.{publicationYear})</Typography>
+            <Typography variant="h5">{imprint === 'null' ? null : imprint + ', '}{publisher} (this ed.{publicationYear})</Typography>
           </Grid>
           <Grid item>
             <Typography variant="h4">

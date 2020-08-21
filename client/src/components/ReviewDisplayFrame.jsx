@@ -48,10 +48,10 @@ const ReviewDisplayFrame = ({ records, isbn }) => {
             const { record } = props
             return (
               <Grid container spacing={2} direction="column" justify="center" alignItems="center" className={styles.reviewDisplayFrame}>
-                <Grid item>
+                <Grid item className={styles.review}>
                   <Review record={record} />
                 </Grid>
-                <Grid item style={{ width: '100%', margin: '20px 0' }}>
+                <Grid item className={styles.not}>
                   <Button variant='outlined' fullWidth={true} onClick={() => navigateToRandomTitle()}>
                     <Typography variant="h3" >not this one</Typography>
                   </Button>
