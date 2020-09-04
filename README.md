@@ -25,11 +25,11 @@ The previous iteration of Cassidy used Redux for state management and sqlite as 
 - [ ] jacket filepath
 - [ ] bookstore seeking link
 - [x] webpack / build config
-- [ ] restructure determination for mongo
+- [x] restructure determination for mongo
 - [ ] write determination buttons
 - [ ] imprint={void} true
 - [ ] strip legacy styling
-- [ ] scroll-to-top in mobile view
+- [x] scroll-to-top in mobile view
 - [x] refactor query structure
 - [x] Typography >> Markdown
 - [x] Sizing for xl devices
