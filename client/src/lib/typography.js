@@ -5,7 +5,7 @@ const typography = {
     'sans-serif'
   ].join(','),
   h1: {
-    fontSize: '6em',
+    fontSize: '5em',
     fontWeight: '500'
   },
   h2: {
