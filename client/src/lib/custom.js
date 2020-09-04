@@ -25,19 +25,20 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   homePage: {
-    width: '100%',
+    width: '100vw',
     height: '100vh',
     justifyContent: 'center',
+    alignContent: 'center',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-start'
     }
   },
   landing: {
     cursor: 'pointer',
-    width: '100%',
-    height: '100vh',
-    justifyContent: 'center',
-    alignContent: 'center'
+    height: '100vh'
+  },
+  landingHero: {
+    textAlign: 'center'
   },
   hidden: {
     display: 'none',
@@ -53,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   not: {
     background: '#ffffff',
-    width: '80%',
+    width: '90%',
     margin: '0 auto',
     [theme.breakpoints.down('sm')]: {
       position: 'fixed',
